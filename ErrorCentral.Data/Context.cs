@@ -10,17 +10,17 @@ namespace ErrorCentral.Data
     public class Context : DbContext
     {
         public DbSet<Log> Log { get; set; }
-    }
 
-    public Context(DbContextOptions<Context> options)
-           : base(options)
-    {
-    }
+        public Context(DbContextOptions<Context> options)
+          : base(options)
+        {
+        }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.ApplyConfiguration(new LogMap());
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new LogMap());
 
-        base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

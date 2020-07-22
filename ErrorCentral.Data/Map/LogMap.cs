@@ -15,31 +15,31 @@ namespace ErrorCentral.Data.Map
 
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.organization)
+            builder.Property(x => x.Organization)
                .HasColumnType("varchar(250)")
                .IsRequired();
 
-            builder.Property(x => x.title)
+            builder.Property(x => x.Title)
                 .HasColumnType("varchar(250)")
                 .IsRequired();
 
-            builder.Property(x => x.level)
+            builder.Property(x => x.Level)
                 .HasColumnType("varchar(100)")
                 .IsRequired();
 
-            builder.Property(x => x.description)
+            builder.Property(x => x.Description)
                 .HasColumnType("varchar(250)")
                 .IsRequired();
 
-            builder.Property(x => x.origin)
+            builder.Property(x => x.Origin)
                 .HasColumnType("varchar(150)")
                 .IsRequired();
 
-            builder.Property(x => x.collectedBy)
+            builder.Property(x => x.CollectedBy)
                 .HasColumnType("varchar(150)")
                 .IsRequired();
 
-            builder.Property(x => x.createdAt)
+            builder.Property(x => x.CreatedAt)
                 .HasColumnType("smalldatetime")
                 .IsRequired();
         }

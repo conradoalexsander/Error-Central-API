@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ErrorCentral.Domain.Repository
 {
-    internal interface ILogRepository : IBaseRepository<Log>
+    public interface ILogRepository : IBaseRepository<Log>
     {
     }
 }
