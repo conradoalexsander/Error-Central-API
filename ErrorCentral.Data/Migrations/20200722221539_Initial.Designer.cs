@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ErrorCentral.Data.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20200722003548_Iniial")]
-    partial class Iniial
+    [Migration("20200722221539_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,13 +39,12 @@ namespace ErrorCentral.Data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(250)");
 
+                    b.Property<int>("IdOrganization")
+                        .HasColumnType("int");
+
                     b.Property<string>("Level")
                         .IsRequired()
                         .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Organization")
-                        .IsRequired()
-                        .HasColumnType("varchar(250)");
 
                     b.Property<string>("Origin")
                         .IsRequired()
@@ -57,7 +56,34 @@ namespace ErrorCentral.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("IdOrganization");
+
                     b.ToTable("Log");
+                });
+
+            modelBuilder.Entity("ErrorCentral.Domain.Model.Organization", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Organization");
+                });
+
+            modelBuilder.Entity("ErrorCentral.Domain.Model.Log", b =>
+                {
+                    b.HasOne("ErrorCentral.Domain.Model.Organization", "Organization")
+                        .WithMany("Logs")
+                        .HasForeignKey("IdOrganization")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

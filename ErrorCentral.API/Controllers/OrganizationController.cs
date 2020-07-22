@@ -11,58 +11,50 @@ namespace ErrorCentral.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LogController : ControllerBase
+    public class OrganizationController : ControllerBase
     {
         //underline utilizado porque a classe e privada (padrão da comunidade)
-        private readonly ILogRepository _repo;
+        private readonly IOrganizationRepository _repo;
 
-        public LogController(ILogRepository repo)
+        public OrganizationController(IOrganizationRepository repo)
         {
             _repo = repo;
         }
 
         [HttpGet]
-        public IEnumerable<Log> Get()
+        public IEnumerable<Organization> Get()
         {
             return _repo.SelectAll();
         }
 
-        // GET api/<IngredienteController>/5
+        // GET api/<OrganizationController>/5
         [HttpGet("{id}")]
-        public Log Get(int id)
+        public Organization Get(int id)
         {
             return _repo.SelectById(id);
         }
 
-        // POST api/<IngredienteController>
+        // POST api/<OrganizationController>
         [HttpPost]
-        public IEnumerable<Log> Post([FromBody] Log log)
+        public IEnumerable<Organization> Post([FromBody] Organization organization)
         {
-            _repo.Add(log);
+            _repo.Add(organization);
             return _repo.SelectAll();
         }
 
-        // PUT api/<IngredienteController>/5
+        // PUT api/<OrganizationController>/5
         [HttpPut] //O Id do objeto é suficiente para o EF
-        public IEnumerable<Log> Put([FromBody] Log log)
+        public IEnumerable<Organization> Put([FromBody] Organization organization)
         {
-            _repo.Update(log);
+            _repo.Update(organization);
             return _repo.SelectAll();
         }
 
-        // DELETE api/<IngredienteController>/5
+        // DELETE api/<OrganizationController>/5
         [HttpDelete("{id}")]
-        public IEnumerable<Log> Delete(int id)
+        public IEnumerable<Organization> Delete(int id)
         {
             _repo.Delete(id);
-            return _repo.SelectAll();
-        }
-
-        // DELETE api/<IngredienteController>/5
-        [HttpDelete]
-        public IEnumerable<Log> DeleteMany([FromBody] List<int> ids)
-        {
-            _repo.DeleteMany(ids);
             return _repo.SelectAll();
         }
     }

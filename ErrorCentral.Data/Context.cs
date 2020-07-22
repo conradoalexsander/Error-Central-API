@@ -10,6 +10,7 @@ namespace ErrorCentral.Data
     public class Context : DbContext
     {
         public DbSet<Log> Log { get; set; }
+        public DbSet<Organization> Organization { get; set; }
 
         public Context(DbContextOptions<Context> options)
           : base(options)
@@ -19,6 +20,7 @@ namespace ErrorCentral.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new LogMap());
+            modelBuilder.ApplyConfiguration(new OrganizationMap());
 
             base.OnModelCreating(modelBuilder);
         }

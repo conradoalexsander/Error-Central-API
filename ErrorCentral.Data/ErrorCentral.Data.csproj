@@ -15,5 +15,4 @@
   <ItemGroup>
     <ProjectReference Include="..\ErrorCentral.Domain\ErrorCentral.Domain.csproj" />
   </ItemGroup>
-
 </Project>

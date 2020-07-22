@@ -37,6 +37,7 @@ namespace ErrorCentral.API
                 );
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<ILogRepository, LogRepository>();
+            services.AddScoped<IOrganizationRepository, OrganizationRepository>();
 
             services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("DbConn")));
 

@@ -5,8 +5,7 @@ using System.Text;
 
 namespace ErrorCentral.Domain.Repository
 {
-    public interface ILogRepository : IBaseRepository<Log>
+    public interface IOrganizationRepository : IBaseRepository<Organization>
     {
-        void DeleteMany(List<int> ids);
     }
 }

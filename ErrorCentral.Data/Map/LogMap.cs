@@ -1,9 +1,6 @@
 ﻿using ErrorCentral.Domain.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ErrorCentral.Data.Map
 {
@@ -14,10 +11,6 @@ namespace ErrorCentral.Data.Map
             builder.ToTable("Log");
 
             builder.HasKey(x => x.Id);
-
-            builder.Property(x => x.Organization)
-               .HasColumnType("varchar(250)")
-               .IsRequired();
 
             builder.Property(x => x.Title)
                 .HasColumnType("varchar(250)")
@@ -42,6 +35,10 @@ namespace ErrorCentral.Data.Map
             builder.Property(x => x.CreatedAt)
                 .HasColumnType("smalldatetime")
                 .IsRequired();
+
+            builder.HasOne(x => x.Organization)
+                    .WithMany(t => t.Logs)
+                    .HasForeignKey(org => org.IdOrganization);
         }
     }
 }

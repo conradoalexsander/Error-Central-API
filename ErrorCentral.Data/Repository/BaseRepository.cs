@@ -1,4 +1,5 @@
 ﻿using ErrorCentral.Domain.Repository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace ErrorCentral.Data.Repository
             _context = context;
         }
 
-        public void Add(T entity)
+        public virtual void Add(T entity)
         {
             _context.Set<T>().Add(entity);
             _context.SaveChanges(); //necessário para incluir uma alteração no banco
@@ -34,7 +35,7 @@ namespace ErrorCentral.Data.Repository
             _context.SaveChanges();
         }
 
-        public List<T> SelectAll()
+        public virtual List<T> SelectAll()
         {
             return _context.Set<T>().ToList();
         }

@@ -9,12 +9,13 @@ namespace ErrorCentral.Domain.Model
 
     {
         public int Id { get; set; }
-        public string Organization { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string Level { get; set; }
         public string Origin { get; set; }
         public string CollectedBy { get; set; }
         public DateTime CreatedAt { get; set; }
+        public int IdOrganization { get; set; }
+        public virtual Organization Organization { get; set; }
     }
 }
