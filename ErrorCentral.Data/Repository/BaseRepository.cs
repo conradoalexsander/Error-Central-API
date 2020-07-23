@@ -40,7 +40,7 @@ namespace ErrorCentral.Data.Repository
             return _context.Set<T>().ToList();
         }
 
-        public T SelectById(int id)
+        public virtual T SelectById(int id)
         {
             return _context.Set<T>().FirstOrDefault(x => x.Id == id);
         }

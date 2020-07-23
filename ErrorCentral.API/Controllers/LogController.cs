@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ErrorCentral.Domain.Model;
-using ErrorCentral.Domain.Repository;
-using Microsoft.AspNetCore.Http;
+﻿using System.Collections.Generic;
+using ErrorCentral.Application.DTOs;
+using ErrorCentral.Application.ServiceInterfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ErrorCentral.API.Controllers
@@ -14,56 +10,83 @@ namespace ErrorCentral.API.Controllers
     public class LogController : ControllerBase
     {
         //underline utilizado porque a classe e privada (padrão da comunidade)
-        private readonly ILogRepository _repo;
+        private readonly ILogService _app;
 
-        public LogController(ILogRepository repo)
+        public LogController(ILogService app)
         {
-            _repo = repo;
+            _app = app;
         }
 
         [HttpGet]
-        public IEnumerable<Log> Get()
+        public ActionResult<IEnumerable<LogDTO>> Get()
         {
-            return _repo.SelectAll();
+            if (_app.SelectAll().Count > 0)
+            {
+                return Ok(_app.SelectAll());
+            }
+            else
+            {
+                return NoContent();
+            }
         }
 
         // GET api/<IngredienteController>/5
         [HttpGet("{id}")]
-        public Log Get(int id)
+        public ActionResult<LogDTO> Get(int id)
         {
-            return _repo.SelectById(id);
+            if (_app.SelectById(id) != null)
+            {
+                return Ok(_app.SelectById(id));
+            }
+            else
+            {
+                return NoContent();
+            }
         }
 
         // POST api/<IngredienteController>
         [HttpPost]
-        public IEnumerable<Log> Post([FromBody] Log log)
+        public ActionResult<IEnumerable<LogDTO>> Post([FromBody] LogAddDTO log)
         {
-            _repo.Add(log);
-            return _repo.SelectAll();
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            _app.Add(log);
+            return _app.SelectAll();
         }
 
         // PUT api/<IngredienteController>/5
         [HttpPut] //O Id do objeto é suficiente para o EF
-        public IEnumerable<Log> Put([FromBody] Log log)
+        public ActionResult<IEnumerable<LogDTO>> Put([FromBody] LogUpdateDTO log)
         {
-            _repo.Update(log);
-            return _repo.SelectAll();
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            _app.Update(log);
+            return Ok(_app.SelectAll());
         }
 
         // DELETE api/<IngredienteController>/5
         [HttpDelete("{id}")]
-        public IEnumerable<Log> Delete(int id)
+        public ActionResult Delete(int id)
         {
-            _repo.Delete(id);
-            return _repo.SelectAll();
+            if (_app.SelectById(id) != null)
+            {
+                _app.Delete(id);
+                return NoContent();
+            }
+            else
+            {
+                return BadRequest($"Log with id {id} not found");
+            }
         }
 
         // DELETE api/<IngredienteController>/5
         [HttpDelete]
-        public IEnumerable<Log> DeleteMany([FromBody] List<int> ids)
+        public IEnumerable<LogDTO> DeleteMany([FromBody] List<int> ids)
         {
-            _repo.DeleteMany(ids);
-            return _repo.SelectAll();
+            _app.DeleteMany(ids);
+            return _app.SelectAll();
         }
     }
 }

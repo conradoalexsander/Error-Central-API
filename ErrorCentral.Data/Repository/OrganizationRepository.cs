@@ -19,5 +19,10 @@ namespace ErrorCentral.Data.Repository
         {
             return _context.Organization.Include(p => p.Logs).ToList();
         }
+
+        public override Organization SelectById(int id)
+        {
+            return _context.Organization.Include(p => p.Logs).FirstOrDefault(x => x.Id == id);
+        }
     }
 }

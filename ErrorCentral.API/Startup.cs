@@ -1,19 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ErrorCentral.Data;
-using ErrorCentral.Data.Repository;
-using ErrorCentral.Domain.Repository;
+using AutoMapper;
+using ErrorCentral.Application.Mapper;
+using ErrorCentral.Infra.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+
 using Microsoft.OpenApi.Models;
 
 namespace ErrorCentral.API
@@ -30,16 +23,15 @@ namespace ErrorCentral.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            Bootstrap.ServiceRegistry(services, Configuration);
+
             services.AddControllers()
                 .AddNewtonsoftJson(
                 options => options.SerializerSettings.ReferenceLoopHandling =
                 Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 );
-            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
-            services.AddScoped<ILogRepository, LogRepository>();
-            services.AddScoped<IOrganizationRepository, OrganizationRepository>();
 
-            services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("DbConn")));
+            services.AddAutoMapper(typeof(AutoMapperConfig));
 
             services.AddSwaggerGen(x => x.SwaggerDoc(name: "v1", new OpenApiInfo { Title = "Error Central", Version = "v1" }));
         }
