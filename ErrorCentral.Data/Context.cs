@@ -1,13 +1,11 @@
 ﻿using ErrorCentral.Data.Map;
 using ErrorCentral.Domain.Model;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ErrorCentral.Data
 {
-    public class Context : DbContext
+    public class Context : IdentityDbContext
     {
         public DbSet<Log> Log { get; set; }
         public DbSet<Organization> Organization { get; set; }

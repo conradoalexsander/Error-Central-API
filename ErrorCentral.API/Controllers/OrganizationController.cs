@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using ErrorCentral.Application.DTOs;
 using ErrorCentral.Application.ServiceInterfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ErrorCentral.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class OrganizationController : ControllerBase

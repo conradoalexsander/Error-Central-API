@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ErrorCentral.Application.DTOs;
 using ErrorCentral.Domain.Model;
+using Microsoft.AspNetCore.Identity;
 
 namespace ErrorCentral.Application.Mapper
 {
@@ -20,6 +21,10 @@ namespace ErrorCentral.Application.Mapper
             CreateMap<Organization, OrganizationAddDTO>().ReverseMap();
 
             CreateMap<Log, LogUpdateDTO>().ReverseMap();
+
+            CreateMap<IdentityUser, UserDTO>().ReverseMap();
+            CreateMap<IdentityUser, UserIdDTO>().ReverseMap();
+            
         }
     }
 }
