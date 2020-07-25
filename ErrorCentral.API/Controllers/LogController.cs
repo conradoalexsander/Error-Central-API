@@ -20,13 +20,10 @@ namespace ErrorCentral.API.Controllers
 
         private readonly IErrorService _err;
 
-        private readonly UserManager<IdentityUser> _userManager;
-
-        public LogController(ILogService app, IErrorService err, UserManager<IdentityUser> userManager)
+        public LogController(ILogService app, IErrorService err)
         {
             _app = app;
             _err = err;
-            _userManager = userManager;
         }
 
         [HttpGet]
@@ -45,20 +42,11 @@ namespace ErrorCentral.API.Controllers
             }
             catch (Exception ex)
             {
-                Error exceptionError = new Error()
-                {
-                    CreatedAt = new DateTime(),
-                    StackTrace = ex.StackTrace,
-                    UserName = HttpContext.User.Identity.Name,
-                    Message = ex.Message
-                };
-
-                _err.Add(exceptionError);
+                _err.Add(ex, HttpContext.User.Identity.Name);
                 return BadRequest(ex.Message);
             }
         }
 
-        // GET api/<IngredienteController>/5
         [HttpGet("{id}")]
         public ActionResult<LogDTO> Get(int id)
         {
@@ -75,20 +63,11 @@ namespace ErrorCentral.API.Controllers
             }
             catch (Exception ex)
             {
-                Error exceptionError = new Error()
-                {
-                    CreatedAt = new DateTime(),
-                    StackTrace = ex.StackTrace,
-                    UserName = HttpContext.User.Identity.Name,
-                    Message = ex.Message
-                };
-
-                _err.Add(exceptionError);
+                _err.Add(ex, HttpContext.User.Identity.Name);
                 return BadRequest(ex.Message);
             }
         }
 
-        // POST api/<IngredienteController>
         [HttpPost]
         public ActionResult<IEnumerable<LogDTO>> Post([FromBody] LogAddDTO log)
         {
@@ -102,21 +81,12 @@ namespace ErrorCentral.API.Controllers
             }
             catch (Exception ex)
             {
-                Error exceptionError = new Error()
-                {
-                    CreatedAt = new DateTime(),
-                    StackTrace = ex.StackTrace,
-                    UserName = HttpContext.User.Identity.Name,
-                    Message = ex.Message
-                };
-
-                _err.Add(exceptionError);
+                _err.Add(ex, HttpContext.User.Identity.Name);
                 return BadRequest(ex.Message);
             }
         }
 
-        // PUT api/<IngredienteController>/5
-        [HttpPut] //O Id do objeto é suficiente para o EF
+        [HttpPut]
         public ActionResult<IEnumerable<LogDTO>> Put([FromBody] LogUpdateDTO log)
         {
             try
@@ -129,20 +99,11 @@ namespace ErrorCentral.API.Controllers
             }
             catch (Exception ex)
             {
-                Error exceptionError = new Error()
-                {
-                    CreatedAt = new DateTime(),
-                    StackTrace = ex.StackTrace,
-                    UserName = HttpContext.User.Identity.Name,
-                    Message = ex.Message
-                };
-
-                _err.Add(exceptionError);
+                _err.Add(ex, HttpContext.User.Identity.Name);
                 return BadRequest(ex.Message);
             }
         }
 
-        // DELETE api/<IngredienteController>/5
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
@@ -160,22 +121,11 @@ namespace ErrorCentral.API.Controllers
             }
             catch (Exception ex)
             {
-                var user = _userManager.GetUserAsync(HttpContext.User).Result;
-
-                Error exceptionError = new Error()
-                {
-                    CreatedAt = new DateTime(),
-                    StackTrace = ex.StackTrace,
-                    UserName = user.UserName,
-                    Message = ex.Message
-                };
-
-                _err.Add(exceptionError);
+                _err.Add(ex, HttpContext.User.Identity.Name);
                 return BadRequest(ex.Message);
             }
         }
 
-        // DELETE api/<IngredienteController>/5
         [HttpDelete]
         public ActionResult<IEnumerable<LogDTO>> DeleteMany([FromBody] List<int> ids)
         {
@@ -186,17 +136,7 @@ namespace ErrorCentral.API.Controllers
             }
             catch (Exception ex)
             {
-                var user = _userManager.GetUserAsync(HttpContext.User).Result;
-
-                Error exceptionError = new Error()
-                {
-                    CreatedAt = new DateTime(),
-                    StackTrace = ex.StackTrace,
-                    UserName = user.UserName,
-                    Message = ex.Message
-                };
-
-                _err.Add(exceptionError);
+                _err.Add(ex, HttpContext.User.Identity.Name);
                 return BadRequest(ex.Message);
             }
         }

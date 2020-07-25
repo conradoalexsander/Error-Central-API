@@ -1,6 +1,7 @@
 ﻿using ErrorCentral.Application.ServiceInterfaces;
 using ErrorCentral.Domain.Model;
 using ErrorCentral.Domain.Repository;
+using System;
 using System.Collections.Generic;
 
 namespace ErrorCentral.Application.Services
@@ -14,9 +15,17 @@ namespace ErrorCentral.Application.Services
             _repo = repo;
         }
 
-        public void Add(Error entity)
+        public void Add(Exception ex, string userName)
         {
-            _repo.Add(entity);
+            Error exceptionError = new Error()
+            {
+                CreatedAt = new DateTime(),
+                StackTrace = ex.StackTrace,
+                UserName = userName,
+                Message = ex.Message
+            };
+
+            _repo.Add(exceptionError);
         }
 
         public void Delete(int id)

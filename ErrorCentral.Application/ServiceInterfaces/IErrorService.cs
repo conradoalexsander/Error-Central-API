@@ -7,7 +7,7 @@ namespace ErrorCentral.Application.ServiceInterfaces
 {
     public interface IErrorService
     {
-        void Add(Error entity);
+        void Add(Exception ex, string userName);
 
         Error SelectById(int id);
 

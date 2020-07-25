@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ErrorCentral.Application.DTOs;
 using ErrorCentral.Application.ServiceInterfaces;
+using ErrorCentral.Domain.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,72 +16,113 @@ namespace ErrorCentral.API.Controllers
         //underline utilizado porque a classe e privada (padrão da comunidade)
         private readonly IOrganizationService _app;
 
-        public OrganizationController(IOrganizationService app)
+        private readonly IErrorService _err;
+
+        public OrganizationController(IOrganizationService app, IErrorService err)
         {
             _app = app;
+            _err = err;
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<OrganizationDTO>> Get()
         {
-            if (_app.SelectAll().Count > 0)
+            try
             {
-                return Ok(_app.SelectAll());
+                if (_app.SelectAll().Count > 0)
+                {
+                    return Ok(_app.SelectAll());
+                }
+                else
+                {
+                    return NoContent();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return NoContent();
+                _err.Add(ex, HttpContext.User.Identity.Name);
+                return BadRequest(ex.Message);
             }
         }
 
-        // GET api/<OrganizationController>/5
         [HttpGet("{id}")]
         public ActionResult<OrganizationDTO> Get(int id)
         {
-            if (_app.SelectById(id) != null)
+            try
             {
-                return Ok(_app.SelectById(id));
+                if (_app.SelectById(id) != null)
+                {
+                    return Ok(_app.SelectById(id));
+                }
+                else
+                {
+                    return NoContent();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return NoContent();
+                _err.Add(ex, HttpContext.User.Identity.Name);
+                return BadRequest(ex.Message);
             }
         }
 
-        // POST api/<OrganizationController>
         [HttpPost]
         public ActionResult<IEnumerable<OrganizationDTO>> Post([FromBody] OrganizationAddDTO organization)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            try
+            {
+                if (!ModelState.IsValid)
+                    throw new Exception("Fail on model validation");
 
-            _app.Add(organization);
-            return _app.SelectAll();
+                _app.Add(organization);
+                return _app.SelectAll();
+            }
+            catch (Exception ex)
+            {
+                _err.Add(ex, HttpContext.User.Identity.Name);
+                return BadRequest(ex.Message);
+            }
         }
 
         // PUT api/<OrganizationController>/5
         [HttpPut] //O Id do objeto é suficiente para o EF
         public ActionResult<IEnumerable<OrganizationDTO>> Put([FromBody] OrganizationDTO organization)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            try
+            {
+                if (!ModelState.IsValid)
+                    throw new Exception("Fail on model validation");
 
-            _app.Update(organization);
-            return Ok(_app.SelectAll());
+                _app.Update(organization);
+                return Ok(_app.SelectAll());
+            }
+            catch (Exception ex)
+            {
+                _err.Add(ex, HttpContext.User.Identity.Name);
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE api/<OrganizationController>/5
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            if (_app.SelectById(id) != null)
+            try
             {
-                _app.Delete(id);
-                return NoContent();
+                if (_app.SelectById(id) != null)
+                {
+                    _app.Delete(id);
+                    return NoContent();
+                }
+                else
+                {
+                    return BadRequest($"Organization with id {id} not found");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return BadRequest($"Organization with id {id} not found");
+                _err.Add(ex, HttpContext.User.Identity.Name);
+                return BadRequest(ex.Message);
             }
         }
     }

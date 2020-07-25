@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using ErrorCentral.Application.DTOs;
 using ErrorCentral.Application.ServiceInterfaces;
-using ErrorCentral.Application.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ErrorCentral.API.Controllers
@@ -17,28 +14,46 @@ namespace ErrorCentral.API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _app;
+        private readonly IErrorService _err;
 
-        public UserController(IUserService app)
+        public UserController(IUserService app, IErrorService err)
         {
             _app = app;
+            _err = err;
         }
 
         [HttpPost("Login")]
         public async Task<string> Login(LoginDTO login)
         {
-            return await _app.Login(login);
+            try
+            {
+                return await _app.Login(login);
+            }
+            catch (Exception ex)
+            {
+                _err.Add(ex, HttpContext.User.Identity.Name);
+                return ex.Message;
+            }
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<UserDTO>> Get()
         {
-            if (_app.SelectAll().Count > 0)
+            try
             {
-                return Ok(_app.SelectAll());
+                if (_app.SelectAll().Count > 0)
+                {
+                    return Ok(_app.SelectAll());
+                }
+                else
+                {
+                    return NoContent();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return NoContent();
+                _err.Add(ex, HttpContext.User.Identity.Name);
+                return BadRequest(ex.Message);
             }
         }
 
@@ -46,32 +61,47 @@ namespace ErrorCentral.API.Controllers
         [HttpGet("{email}")]
         public ActionResult<UserIdDTO> Get(string email)
         {
-            if (_app.FindByEmail(email) != null)
+            try
             {
-                return Ok(_app.FindByEmail(email));
+                if (_app.FindByEmail(email) != null)
+                {
+                    return Ok(_app.FindByEmail(email));
+                }
+                else
+                {
+                    return NoContent();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return NoContent();
+                _err.Add(ex, HttpContext.User.Identity.Name);
+                return BadRequest(ex.Message);
             }
         }
 
         [Authorize]
         [HttpPost]
-        public async Task<bool> Post([FromBody] UserDTO user)
+        public ActionResult<Task<bool>> Post([FromBody] UserDTO user)
         {
-            return await _app.Add(user);
+            try
+            {
+                return _app.Add(user);
+            }
+            catch (Exception ex)
+            {
+                _err.Add(ex, HttpContext.User.Identity.Name);
+                return BadRequest(ex.Message);
+            }
         }
 
-        // PUT api/<UserController>/5
         [Authorize]
-        [HttpPut] //O Id do objeto é suficiente para o EF
+        [HttpPut]
         public ActionResult<IEnumerable<UserIdDTO>> Put([FromBody] UserIdDTO user)
         {
             try
             {
                 if (!ModelState.IsValid)
-                    return BadRequest(ModelState);
+                    throw new Exception("Model State is invalid");
 
                 var updateProccess = _app.Update(user);
 
@@ -86,6 +116,7 @@ namespace ErrorCentral.API.Controllers
             }
             catch (Exception ex)
             {
+                _err.Add(ex, HttpContext.User.Identity.Name);
                 return BadRequest(ex.Message);
             }
         }
@@ -109,6 +140,7 @@ namespace ErrorCentral.API.Controllers
             }
             catch (Exception ex)
             {
+                _err.Add(ex, HttpContext.User.Identity.Name);
                 return BadRequest(ex.Message);
             }
         }
