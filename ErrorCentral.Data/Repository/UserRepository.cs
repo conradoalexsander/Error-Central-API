@@ -1,5 +1,6 @@
 ﻿using ErrorCentral.Domain.Repository;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System;
@@ -45,18 +46,24 @@ namespace ErrorCentral.Data.Repository
             return null;
         }
 
-        public async Task<bool> Update(IdentityUser user)
+        public IdentityResult Update(IdentityUser user)
         {
-            var updateUserProccess = await _userManager.UpdateAsync(user);
-            _userManager.Dispose();
+            IdentityUser oldUser = _userManager.FindByIdAsync(user.Id).Result;
+            oldUser.UserName = user.UserName;
+            oldUser.Email = user.Email;
 
-            return updateUserProccess.Succeeded;
+            return _userManager.UpdateAsync(oldUser).Result;
         }
 
         public async Task<bool> Delete(IdentityUser user)
         {
             var deleteUserProccess = await _userManager.DeleteAsync(user);
             return deleteUserProccess.Succeeded;
+        }
+
+        public async Task<List<IdentityUser>> SelectAll()
+        {
+            return await _userManager.Users.ToListAsync();
         }
 
         public async Task<IdentityUser> FindByEmail(string email)

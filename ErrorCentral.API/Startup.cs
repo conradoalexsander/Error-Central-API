@@ -28,14 +28,17 @@ namespace ErrorCentral.API
         public void ConfigureServices(IServiceCollection services)
         {
             Bootstrap.ServiceRegistry(services, Configuration);
-
             services.AddControllers()
-                .AddNewtonsoftJson(
-                options => options.SerializerSettings.ReferenceLoopHandling =
-                Newtonsoft.Json.ReferenceLoopHandling.Ignore
-                );
-
+            .AddNewtonsoftJson(
+            options => options.SerializerSettings.ReferenceLoopHandling =
+            Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
             services.AddAutoMapper(typeof(AutoMapperConfig));
+         
+
+        
+
+        
 
             services.AddSwaggerGen(x =>
             {

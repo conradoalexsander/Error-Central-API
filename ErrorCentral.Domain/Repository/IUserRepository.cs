@@ -10,9 +10,11 @@ namespace ErrorCentral.Domain.Repository
     {
         Task<bool> Add(string name, string email, string password);
 
-        Task<bool> Update(IdentityUser user);
+        IdentityResult Update(IdentityUser user);
 
         Task<bool> Delete(IdentityUser user);
+
+        Task<List<IdentityUser>> SelectAll();
 
         Task<IdentityUser> FindById(string id);
 

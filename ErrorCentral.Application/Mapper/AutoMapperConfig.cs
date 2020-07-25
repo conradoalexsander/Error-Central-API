@@ -23,8 +23,8 @@ namespace ErrorCentral.Application.Mapper
             CreateMap<Log, LogUpdateDTO>().ReverseMap();
 
             CreateMap<IdentityUser, UserDTO>().ReverseMap();
+
             CreateMap<IdentityUser, UserIdDTO>().ReverseMap();
-            
         }
     }
 }

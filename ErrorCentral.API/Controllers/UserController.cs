@@ -23,6 +23,25 @@ namespace ErrorCentral.API.Controllers
             _app = app;
         }
 
+        [HttpPost("Login")]
+        public async Task<string> Login(LoginDTO login)
+        {
+            return await _app.Login(login);
+        }
+
+        [HttpGet]
+        public ActionResult<IEnumerable<UserDTO>> Get()
+        {
+            if (_app.SelectAll().Count > 0)
+            {
+                return Ok(_app.SelectAll());
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
+
         [Authorize]
         [HttpGet("{email}")]
         public ActionResult<UserIdDTO> Get(string email)
@@ -44,12 +63,6 @@ namespace ErrorCentral.API.Controllers
             return await _app.Add(user);
         }
 
-        [HttpPost("Login")]
-        public async Task<string> Login(LoginDTO login)
-        {
-            return await _app.Login(login);
-        }
-
         // PUT api/<UserController>/5
         [Authorize]
         [HttpPut] //O Id do objeto é suficiente para o EF
@@ -60,11 +73,11 @@ namespace ErrorCentral.API.Controllers
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
-                var updateProccess = _app.Update(user).Result;
+                var updateProccess = _app.Update(user);
 
-                if (updateProccess == true)
+                if (updateProccess.Succeeded == true)
                 {
-                    return Ok("User update successfully");
+                    return Ok("User updated successfully");
                 }
                 else
                 {
@@ -82,14 +95,21 @@ namespace ErrorCentral.API.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(string id)
         {
-            var deleteProccess = _app.Delete(id);
-            if (deleteProccess.Result == true)
+            try
             {
-                return NoContent();
+                var deleteProccess = _app.Delete(id);
+                if (deleteProccess.Result == true)
+                {
+                    return NoContent();
+                }
+                else
+                {
+                    throw new Exception($"Log with id {id} not found");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return BadRequest($"Log with id {id} not found");
+                return BadRequest(ex.Message);
             }
         }
     }

@@ -9,6 +9,7 @@ namespace ErrorCentral.Data
     {
         public DbSet<Log> Log { get; set; }
         public DbSet<Organization> Organization { get; set; }
+        public DbSet<Error> Error { get; set; }
 
         public Context(DbContextOptions<Context> options)
           : base(options)

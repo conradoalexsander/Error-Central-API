@@ -62,10 +62,10 @@ namespace ErrorCentral.Application.Services
             return tokenHandler.WriteToken(token);
         }
 
-        public async Task<bool> Update(UserIdDTO user)
+        public IdentityResult Update(UserIdDTO user)
         {
             var mappedUser = _mapper.Map<IdentityUser>(user);
-            var updateProccess = await _repo.Update(mappedUser);
+            var updateProccess = _repo.Update(mappedUser);
             return updateProccess;
         }
 
@@ -74,6 +74,11 @@ namespace ErrorCentral.Application.Services
             var user = await _repo.FindById(id);
             var deleteProccess = await _repo.Delete(user);
             return deleteProccess;
+        }
+
+        public List<UserIdDTO> SelectAll()
+        {
+            return _mapper.Map<List<UserIdDTO>>(_repo.SelectAll().Result);
         }
 
         public UserIdDTO FindByEmail(string email)
