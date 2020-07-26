@@ -89,8 +89,6 @@ Project developed during the AceleraDev C#, a developer bootcamp organized by <a
 ### Database
 * []() SQL Server (localdb)
 * []() Fluent API (Entity Framework, code first)
-* []() Expo
-* []() Typescript
 
 ### Login and Authorization
 * []() ASP .NET Core EF Identity
@@ -139,7 +137,7 @@ The application will launch in the Swagger documentation home page.
 
 
 <!-- ENDPOINTS -->
-## <h2 id="endpoints"> :sparkles: &nbsp; &nbsp; Endpoints </h2>
+## <h2 id="endpoints"> :triangular_flag_on_post: &nbsp; &nbsp; Endpoints </h2>
 
 After the application start, it is possible to access the Swagger live documentation about endpoints and schemas in the application index: https://localhost:44369/swagger/index.html.
 
@@ -165,7 +163,7 @@ And authorize your access with it:
 Now, you can execution all actions in the API.
 
 <!-- SCHEMAS -->
-## <h2 id="schemas"> :sparkles: &nbsp; &nbsp; Schemas </h2>
+## <h2 id="schemas"> :earth_americas: &nbsp; &nbsp; Schemas </h2>
 <h3> Database Schema </h3>
 
 <p align="center">
@@ -179,7 +177,7 @@ Now, you can execution all actions in the API.
 </p>
 
 <!-- EXECUTING TESTS -->
-## <h2 id="executing-tests"> :sparkles: &nbsp; &nbsp; Executing tests </h2>
+## <h2 id="executing-tests"> :vertical_traffic_light: &nbsp; &nbsp; Executing tests </h2>
 
 To execute the xUnit tests in this application, right click the ErrorCentral.Test project and click in run:
 
