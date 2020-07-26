@@ -34,7 +34,7 @@
     <img src="Sample/Logo.png" alt="Logo" width="200" height="200">
   </a>
 
-  <h1 align="center">Error Central</h1>
+  <h1 align="center">Error Central API</h1>
 
   <h2 align="center">
     Save your application's error logs!
@@ -95,10 +95,30 @@ Project developed during the AceleraDev C#, a developer bootcamp organized by <a
 * []() ASP .NET Core EF Identity
 * []() JWT Token
 
+## <h3 id="prerequisites"> :pushpin: &nbsp; &nbsp; Prerequisites </h2>
+
+* []() .NET / .NET Core 3.1
+* []() MS SQL Server - localdb
+* []() Visual Studio 2019 
+
+Obs.: Visual Studio 2019 is a .NET framework and this project was made using it. Therefore I am putting it here as a prerequisite because the Getting Started
+Section will consider the user is using it. However, it should be perfectly possible to run this project in another version of this application or even in totally different
+frameworks and setups, with the properly configuration.
+
+## <h3 id="installation"> :computer: &nbsp; &nbsp; Installation </h2>
+ 
+1. Clone the Error-Central-API
+```sh
+git clone https://github.com/conradoalexsander/Error-Central-API.git
+```
+
+
 <!-- GETTING STARTED -->
 ## <h2 id="getting-started">:fire: &nbsp; &nbsp; Getting Started </h2>
 
-Before following the next steps, make sure to change the routes with the correctlye connection (for expo check the 192.XXX.XXX:YYYY connection).
+Before following the next steps, make sure to have the prerequisites installed and configurated. 
+
+This project was built using MS Visual Studio 2019. Therefore, the next steps considers this 
 
 1. Open the server folder in a terminal and execute the following command:
 ```sh
@@ -124,17 +144,9 @@ expo start
 
 You can now check the points, its location and filter them by recycable item.
 
-## <h3 id="prerequisites"> :pushpin: &nbsp; &nbsp; Prerequisites </h2>
 
-* []() Node
-* []() Expo
 
-## <h3 id="installation"> :computer: &nbsp; &nbsp; Installation </h2>
- 
-1. Clone the Error-Central-API
-```sh
-git clone https://github.com/conradoalexsander/Error-Central-API.git
-```
+
 2. Install NPM packages (run this command in web, server and mobile folders)
 ```sh
 npm install
