@@ -205,7 +205,8 @@ Project Link: [https://github.com/conradoalexsander/Error-Central-API](https://g
 <!-- ACKNOWLEDGEMENTS -->
 ## <h2 id="acknowledgements"> :thumbsup: &nbsp; &nbsp; Acknowledgements </h2>
 
-* []() <a href="https://rocketseat.com.br/">Rocketseat</a>
+* []() <a href="https://github.com/stone-payments/">Stone Stech Team</a>
+* []() <a href="https://www.codenation.dev/">Codenation</a>
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
