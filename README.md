@@ -46,19 +46,21 @@
 <!-- ABOUT THE PROJECT -->
 ## <h2 id="about-the-project"> :mortar_board: &nbsp; &nbsp; About The Project </h2>
 
-<p align="center">
-<img
-src="SwaggerImage"
-raw=true
-alt="Web Home Screen" 
-height="512px" 
-/>
-</p>
-
 
 "In modern projects it is increasingly common to use architectures based on services or microservices. In these complex environments, errors can arise in different layers of the application (backend, frontend, mobile, desktop) and even in different services. Thus, it is very important that developers can centralize all error records in one place, from where they can monitor and make better decisions. In this project, we will implement a system to centralize application error records." - Codenation
 
 Project developed during the AceleraDev C#, a developer bootcamp organized by <a href="https://www.codenation.dev/">Codenation</a> focused in C# and ASP .NET Core API application.
+
+<p align="center">
+<img
+src="Sample/Error_Central_API.png"
+raw=true
+alt="Web Home Screen" 
+height="300px" 
+/>
+</p>
+
+
 
 
 <!-- TABLE OF CONTENTS -->
