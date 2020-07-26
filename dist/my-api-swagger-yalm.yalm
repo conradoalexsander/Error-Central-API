@@ -1,12 +1,13 @@
+---
 openapi: 3.0.1
 info:
   title: Error Central
   version: v1
 paths:
-  /api/Log:
+  "/api/Log":
     get:
       tags:
-        - Log
+      - Log
       responses:
         '200':
           description: Success
@@ -15,40 +16,40 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LogDTO'
+                  "$ref": "#/components/schemas/LogDTO"
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LogDTO'
+                  "$ref": "#/components/schemas/LogDTO"
             text/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LogDTO'
+                  "$ref": "#/components/schemas/LogDTO"
         '401':
           description: Unauthorized
         '403':
           description: Forbidden
       security:
-        - bearer: []
+      - bearer: []
     post:
       tags:
-        - Log
+      - Log
       requestBody:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/LogAddDTO'
+              "$ref": "#/components/schemas/LogAddDTO"
           application/json:
             schema:
-              $ref: '#/components/schemas/LogAddDTO'
+              "$ref": "#/components/schemas/LogAddDTO"
           text/json:
             schema:
-              $ref: '#/components/schemas/LogAddDTO'
+              "$ref": "#/components/schemas/LogAddDTO"
           application/*+json:
             schema:
-              $ref: '#/components/schemas/LogAddDTO'
+              "$ref": "#/components/schemas/LogAddDTO"
       responses:
         '200':
           description: Success
@@ -57,40 +58,40 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LogDTO'
+                  "$ref": "#/components/schemas/LogDTO"
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LogDTO'
+                  "$ref": "#/components/schemas/LogDTO"
             text/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LogDTO'
+                  "$ref": "#/components/schemas/LogDTO"
         '401':
           description: Unauthorized
         '403':
           description: Forbidden
       security:
-        - bearer: []
+      - bearer: []
     put:
       tags:
-        - Log
+      - Log
       requestBody:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/LogUpdateDTO'
+              "$ref": "#/components/schemas/LogUpdateDTO"
           application/json:
             schema:
-              $ref: '#/components/schemas/LogUpdateDTO'
+              "$ref": "#/components/schemas/LogUpdateDTO"
           text/json:
             schema:
-              $ref: '#/components/schemas/LogUpdateDTO'
+              "$ref": "#/components/schemas/LogUpdateDTO"
           application/*+json:
             schema:
-              $ref: '#/components/schemas/LogUpdateDTO'
+              "$ref": "#/components/schemas/LogUpdateDTO"
       responses:
         '200':
           description: Success
@@ -99,26 +100,26 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LogDTO'
+                  "$ref": "#/components/schemas/LogDTO"
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LogDTO'
+                  "$ref": "#/components/schemas/LogDTO"
             text/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LogDTO'
+                  "$ref": "#/components/schemas/LogDTO"
         '401':
           description: Unauthorized
         '403':
           description: Forbidden
       security:
-        - bearer: []
+      - bearer: []
     delete:
       tags:
-        - Log
+      - Log
       requestBody:
         content:
           application/json-patch+json:
@@ -157,63 +158,63 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LogDTO'
+                  "$ref": "#/components/schemas/LogDTO"
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LogDTO'
+                  "$ref": "#/components/schemas/LogDTO"
             text/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LogDTO'
+                  "$ref": "#/components/schemas/LogDTO"
         '401':
           description: Unauthorized
         '403':
           description: Forbidden
       security:
-        - bearer: []
-  '/api/Log/{id}':
+      - bearer: []
+  "/api/Log/{id}":
     get:
       tags:
-        - Log
+      - Log
       parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
       responses:
         '200':
           description: Success
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/LogDTO'
+                "$ref": "#/components/schemas/LogDTO"
             application/json:
               schema:
-                $ref: '#/components/schemas/LogDTO'
+                "$ref": "#/components/schemas/LogDTO"
             text/json:
               schema:
-                $ref: '#/components/schemas/LogDTO'
+                "$ref": "#/components/schemas/LogDTO"
         '401':
           description: Unauthorized
         '403':
           description: Forbidden
       security:
-        - bearer: []
+      - bearer: []
     delete:
       tags:
-        - Log
+      - Log
       parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
       responses:
         '200':
           description: Success
@@ -222,11 +223,11 @@ paths:
         '403':
           description: Forbidden
       security:
-        - bearer: []
-  /api/Organization:
+      - bearer: []
+  "/api/Organization":
     get:
       tags:
-        - Organization
+      - Organization
       responses:
         '200':
           description: Success
@@ -235,40 +236,40 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OrganizationDTO'
+                  "$ref": "#/components/schemas/OrganizationDTO"
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OrganizationDTO'
+                  "$ref": "#/components/schemas/OrganizationDTO"
             text/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OrganizationDTO'
+                  "$ref": "#/components/schemas/OrganizationDTO"
         '401':
           description: Unauthorized
         '403':
           description: Forbidden
       security:
-        - bearer: []
+      - bearer: []
     post:
       tags:
-        - Organization
+      - Organization
       requestBody:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/OrganizationAddDTO'
+              "$ref": "#/components/schemas/OrganizationAddDTO"
           application/json:
             schema:
-              $ref: '#/components/schemas/OrganizationAddDTO'
+              "$ref": "#/components/schemas/OrganizationAddDTO"
           text/json:
             schema:
-              $ref: '#/components/schemas/OrganizationAddDTO'
+              "$ref": "#/components/schemas/OrganizationAddDTO"
           application/*+json:
             schema:
-              $ref: '#/components/schemas/OrganizationAddDTO'
+              "$ref": "#/components/schemas/OrganizationAddDTO"
       responses:
         '200':
           description: Success
@@ -277,40 +278,40 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OrganizationDTO'
+                  "$ref": "#/components/schemas/OrganizationDTO"
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OrganizationDTO'
+                  "$ref": "#/components/schemas/OrganizationDTO"
             text/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OrganizationDTO'
+                  "$ref": "#/components/schemas/OrganizationDTO"
         '401':
           description: Unauthorized
         '403':
           description: Forbidden
       security:
-        - bearer: []
+      - bearer: []
     put:
       tags:
-        - Organization
+      - Organization
       requestBody:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/OrganizationDTO'
+              "$ref": "#/components/schemas/OrganizationDTO"
           application/json:
             schema:
-              $ref: '#/components/schemas/OrganizationDTO'
+              "$ref": "#/components/schemas/OrganizationDTO"
           text/json:
             schema:
-              $ref: '#/components/schemas/OrganizationDTO'
+              "$ref": "#/components/schemas/OrganizationDTO"
           application/*+json:
             schema:
-              $ref: '#/components/schemas/OrganizationDTO'
+              "$ref": "#/components/schemas/OrganizationDTO"
       responses:
         '200':
           description: Success
@@ -319,63 +320,63 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OrganizationDTO'
+                  "$ref": "#/components/schemas/OrganizationDTO"
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OrganizationDTO'
+                  "$ref": "#/components/schemas/OrganizationDTO"
             text/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OrganizationDTO'
+                  "$ref": "#/components/schemas/OrganizationDTO"
         '401':
           description: Unauthorized
         '403':
           description: Forbidden
       security:
-        - bearer: []
-  '/api/Organization/{id}':
+      - bearer: []
+  "/api/Organization/{id}":
     get:
       tags:
-        - Organization
+      - Organization
       parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
       responses:
         '200':
           description: Success
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/OrganizationDTO'
+                "$ref": "#/components/schemas/OrganizationDTO"
             application/json:
               schema:
-                $ref: '#/components/schemas/OrganizationDTO'
+                "$ref": "#/components/schemas/OrganizationDTO"
             text/json:
               schema:
-                $ref: '#/components/schemas/OrganizationDTO'
+                "$ref": "#/components/schemas/OrganizationDTO"
         '401':
           description: Unauthorized
         '403':
           description: Forbidden
       security:
-        - bearer: []
+      - bearer: []
     delete:
       tags:
-        - Organization
+      - Organization
       parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
       responses:
         '200':
           description: Success
@@ -384,25 +385,25 @@ paths:
         '403':
           description: Forbidden
       security:
-        - bearer: []
-  /api/User/Login:
+      - bearer: []
+  "/api/User/Login":
     post:
       tags:
-        - User
+      - User
       requestBody:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/LoginDTO'
+              "$ref": "#/components/schemas/LoginDTO"
           application/json:
             schema:
-              $ref: '#/components/schemas/LoginDTO'
+              "$ref": "#/components/schemas/LoginDTO"
           text/json:
             schema:
-              $ref: '#/components/schemas/LoginDTO'
+              "$ref": "#/components/schemas/LoginDTO"
           application/*+json:
             schema:
-              $ref: '#/components/schemas/LoginDTO'
+              "$ref": "#/components/schemas/LoginDTO"
       responses:
         '200':
           description: Success
@@ -416,10 +417,10 @@ paths:
             text/json:
               schema:
                 type: string
-  /api/User:
+  "/api/User":
     get:
       tags:
-        - User
+      - User
       responses:
         '200':
           description: Success
@@ -428,70 +429,70 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserDTO'
+                  "$ref": "#/components/schemas/UserDTO"
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserDTO'
+                  "$ref": "#/components/schemas/UserDTO"
             text/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserDTO'
+                  "$ref": "#/components/schemas/UserDTO"
     post:
       tags:
-        - User
+      - User
       requestBody:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/UserDTO'
+              "$ref": "#/components/schemas/UserDTO"
           application/json:
             schema:
-              $ref: '#/components/schemas/UserDTO'
+              "$ref": "#/components/schemas/UserDTO"
           text/json:
             schema:
-              $ref: '#/components/schemas/UserDTO'
+              "$ref": "#/components/schemas/UserDTO"
           application/*+json:
             schema:
-              $ref: '#/components/schemas/UserDTO'
+              "$ref": "#/components/schemas/UserDTO"
       responses:
         '200':
           description: Success
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/BooleanTask'
+                "$ref": "#/components/schemas/BooleanTask"
             application/json:
               schema:
-                $ref: '#/components/schemas/BooleanTask'
+                "$ref": "#/components/schemas/BooleanTask"
             text/json:
               schema:
-                $ref: '#/components/schemas/BooleanTask'
+                "$ref": "#/components/schemas/BooleanTask"
         '401':
           description: Unauthorized
         '403':
           description: Forbidden
       security:
-        - bearer: []
+      - bearer: []
     put:
       tags:
-        - User
+      - User
       requestBody:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/UserIdDTO'
+              "$ref": "#/components/schemas/UserIdDTO"
           application/json:
             schema:
-              $ref: '#/components/schemas/UserIdDTO'
+              "$ref": "#/components/schemas/UserIdDTO"
           text/json:
             schema:
-              $ref: '#/components/schemas/UserIdDTO'
+              "$ref": "#/components/schemas/UserIdDTO"
           application/*+json:
             schema:
-              $ref: '#/components/schemas/UserIdDTO'
+              "$ref": "#/components/schemas/UserIdDTO"
       responses:
         '200':
           description: Success
@@ -500,64 +501,64 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserIdDTO'
+                  "$ref": "#/components/schemas/UserIdDTO"
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserIdDTO'
+                  "$ref": "#/components/schemas/UserIdDTO"
             text/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserIdDTO'
+                  "$ref": "#/components/schemas/UserIdDTO"
         '401':
           description: Unauthorized
         '403':
           description: Forbidden
       security:
-        - bearer: []
-  '/api/User/{email}':
+      - bearer: []
+  "/api/User/{email}":
     get:
       tags:
-        - User
+      - User
       parameters:
-        - name: email
-          in: path
-          required: true
-          schema:
-            type: string
-            nullable: true
+      - name: email
+        in: path
+        required: true
+        schema:
+          type: string
+          nullable: true
       responses:
         '200':
           description: Success
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/UserIdDTO'
+                "$ref": "#/components/schemas/UserIdDTO"
             application/json:
               schema:
-                $ref: '#/components/schemas/UserIdDTO'
+                "$ref": "#/components/schemas/UserIdDTO"
             text/json:
               schema:
-                $ref: '#/components/schemas/UserIdDTO'
+                "$ref": "#/components/schemas/UserIdDTO"
         '401':
           description: Unauthorized
         '403':
           description: Forbidden
       security:
-        - bearer: []
-  '/api/User/{id}':
+      - bearer: []
+  "/api/User/{id}":
     delete:
       tags:
-        - User
+      - User
       parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-            nullable: true
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          nullable: true
       responses:
         '200':
           description: Success
@@ -566,18 +567,18 @@ paths:
         '403':
           description: Forbidden
       security:
-        - bearer: []
+      - bearer: []
 components:
   schemas:
     LogDTO:
       required:
-        - collectedBy
-        - createdAt
-        - description
-        - idOrganization
-        - level
-        - origin
-        - title
+      - collectedBy
+      - createdAt
+      - description
+      - idOrganization
+      - level
+      - origin
+      - title
       type: object
       properties:
         id:
@@ -602,13 +603,13 @@ components:
       additionalProperties: false
     LogAddDTO:
       required:
-        - collectedBy
-        - createdAt
-        - description
-        - idOrganization
-        - level
-        - origin
-        - title
+      - collectedBy
+      - createdAt
+      - description
+      - idOrganization
+      - level
+      - origin
+      - title
       type: object
       properties:
         title:
@@ -630,9 +631,9 @@ components:
       additionalProperties: false
     LogUpdateDTO:
       required:
-        - description
-        - level
-        - title
+      - description
+      - level
+      - title
       type: object
       properties:
         id:
@@ -647,7 +648,7 @@ components:
       additionalProperties: false
     OrganizationDTO:
       required:
-        - name
+      - name
       type: object
       properties:
         id:
@@ -658,12 +659,12 @@ components:
         logs:
           type: array
           items:
-            $ref: '#/components/schemas/LogDTO'
+            "$ref": "#/components/schemas/LogDTO"
           nullable: true
       additionalProperties: false
     OrganizationAddDTO:
       required:
-        - name
+      - name
       type: object
       properties:
         name:
@@ -694,55 +695,55 @@ components:
       additionalProperties: false
     MethodAttributes:
       enum:
-        - 0
-        - 1
-        - 2
-        - 3
-        - 4
-        - 5
-        - 6
-        - 7
-        - 8
-        - 16
-        - 32
-        - 64
-        - 128
-        - 256
-        - 512
-        - 1024
-        - 2048
-        - 4096
-        - 8192
-        - 16384
-        - 32768
-        - 53248
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 16
+      - 32
+      - 64
+      - 128
+      - 256
+      - 512
+      - 1024
+      - 2048
+      - 4096
+      - 8192
+      - 16384
+      - 32768
+      - 53248
       type: integer
       format: int32
     MethodImplAttributes:
       enum:
-        - 0
-        - 1
-        - 2
-        - 3
-        - 4
-        - 8
-        - 16
-        - 32
-        - 64
-        - 128
-        - 256
-        - 512
-        - 4096
-        - 65535
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 8
+      - 16
+      - 32
+      - 64
+      - 128
+      - 256
+      - 512
+      - 4096
+      - 65535
       type: integer
       format: int32
     CallingConventions:
       enum:
-        - 1
-        - 2
-        - 3
-        - 32
-        - 64
+      - 1
+      - 2
+      - 3
+      - 32
+      - 64
       type: integer
       format: int32
     IntPtr:
@@ -752,19 +753,19 @@ components:
       type: object
       properties:
         value:
-          $ref: '#/components/schemas/IntPtr'
+          "$ref": "#/components/schemas/IntPtr"
       additionalProperties: false
     MemberTypes:
       enum:
-        - 1
-        - 2
-        - 4
-        - 8
-        - 16
-        - 32
-        - 64
-        - 128
-        - 191
+      - 1
+      - 2
+      - 4
+      - 8
+      - 16
+      - 32
+      - 64
+      - 128
+      - 191
       type: integer
       format: int32
     ModuleHandle:
@@ -779,7 +780,7 @@ components:
       type: object
       properties:
         argumentType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         value:
           type: object
           additionalProperties: false
@@ -790,21 +791,21 @@ components:
       type: object
       properties:
         memberType:
-          $ref: '#/components/schemas/MemberTypes'
+          "$ref": "#/components/schemas/MemberTypes"
         name:
           type: string
           nullable: true
           readOnly: true
         declaringType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         reflectedType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         module:
-          $ref: '#/components/schemas/Module'
+          "$ref": "#/components/schemas/Module"
         customAttributes:
           type: array
           items:
-            $ref: '#/components/schemas/CustomAttributeData'
+            "$ref": "#/components/schemas/CustomAttributeData"
           nullable: true
           readOnly: true
         isCollectible:
@@ -819,9 +820,9 @@ components:
       type: object
       properties:
         memberInfo:
-          $ref: '#/components/schemas/MemberInfo'
+          "$ref": "#/components/schemas/MemberInfo"
         typedValue:
-          $ref: '#/components/schemas/CustomAttributeTypedArgument'
+          "$ref": "#/components/schemas/CustomAttributeTypedArgument"
         memberName:
           type: string
           nullable: true
@@ -834,19 +835,19 @@ components:
       type: object
       properties:
         attributeType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         constructor:
-          $ref: '#/components/schemas/ConstructorInfo'
+          "$ref": "#/components/schemas/ConstructorInfo"
         constructorArguments:
           type: array
           items:
-            $ref: '#/components/schemas/CustomAttributeTypedArgument'
+            "$ref": "#/components/schemas/CustomAttributeTypedArgument"
           nullable: true
           readOnly: true
         namedArguments:
           type: array
           items:
-            $ref: '#/components/schemas/CustomAttributeNamedArgument'
+            "$ref": "#/components/schemas/CustomAttributeNamedArgument"
           nullable: true
           readOnly: true
       additionalProperties: false
@@ -854,7 +855,7 @@ components:
       type: object
       properties:
         assembly:
-          $ref: '#/components/schemas/Assembly'
+          "$ref": "#/components/schemas/Assembly"
         fullyQualifiedName:
           type: string
           nullable: true
@@ -876,11 +877,11 @@ components:
           nullable: true
           readOnly: true
         moduleHandle:
-          $ref: '#/components/schemas/ModuleHandle'
+          "$ref": "#/components/schemas/ModuleHandle"
         customAttributes:
           type: array
           items:
-            $ref: '#/components/schemas/CustomAttributeData'
+            "$ref": "#/components/schemas/CustomAttributeData"
           nullable: true
           readOnly: true
         metadataToken:
@@ -892,13 +893,13 @@ components:
       type: object
       properties:
         memberType:
-          $ref: '#/components/schemas/MemberTypes'
+          "$ref": "#/components/schemas/MemberTypes"
         attributes:
-          $ref: '#/components/schemas/MethodAttributes'
+          "$ref": "#/components/schemas/MethodAttributes"
         methodImplementationFlags:
-          $ref: '#/components/schemas/MethodImplAttributes'
+          "$ref": "#/components/schemas/MethodImplAttributes"
         callingConvention:
-          $ref: '#/components/schemas/CallingConventions'
+          "$ref": "#/components/schemas/CallingConventions"
         isAbstract:
           type: boolean
           readOnly: true
@@ -951,7 +952,7 @@ components:
           type: boolean
           readOnly: true
         methodHandle:
-          $ref: '#/components/schemas/RuntimeMethodHandle'
+          "$ref": "#/components/schemas/RuntimeMethodHandle"
         isSecurityCritical:
           type: boolean
           readOnly: true
@@ -966,15 +967,15 @@ components:
           nullable: true
           readOnly: true
         declaringType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         reflectedType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         module:
-          $ref: '#/components/schemas/Module'
+          "$ref": "#/components/schemas/Module"
         customAttributes:
           type: array
           items:
-            $ref: '#/components/schemas/CustomAttributeData'
+            "$ref": "#/components/schemas/CustomAttributeData"
           nullable: true
           readOnly: true
         isCollectible:
@@ -987,39 +988,39 @@ components:
       additionalProperties: false
     EventAttributes:
       enum:
-        - 0
-        - 512
-        - 1024
+      - 0
+      - 512
+      - 1024
       type: integer
       format: int32
     ParameterAttributes:
       enum:
-        - 0
-        - 1
-        - 2
-        - 4
-        - 8
-        - 16
-        - 4096
-        - 8192
-        - 16384
-        - 32768
-        - 61440
+      - 0
+      - 1
+      - 2
+      - 4
+      - 8
+      - 16
+      - 4096
+      - 8192
+      - 16384
+      - 32768
+      - 61440
       type: integer
       format: int32
     ParameterInfo:
       type: object
       properties:
         attributes:
-          $ref: '#/components/schemas/ParameterAttributes'
+          "$ref": "#/components/schemas/ParameterAttributes"
         member:
-          $ref: '#/components/schemas/MemberInfo'
+          "$ref": "#/components/schemas/MemberInfo"
         name:
           type: string
           nullable: true
           readOnly: true
         parameterType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         position:
           type: integer
           format: int32
@@ -1055,7 +1056,7 @@ components:
         customAttributes:
           type: array
           items:
-            $ref: '#/components/schemas/CustomAttributeData'
+            "$ref": "#/components/schemas/CustomAttributeData"
           nullable: true
           readOnly: true
         metadataToken:
@@ -1070,19 +1071,19 @@ components:
       type: object
       properties:
         memberType:
-          $ref: '#/components/schemas/MemberTypes'
+          "$ref": "#/components/schemas/MemberTypes"
         returnParameter:
-          $ref: '#/components/schemas/ParameterInfo'
+          "$ref": "#/components/schemas/ParameterInfo"
         returnType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         returnTypeCustomAttributes:
-          $ref: '#/components/schemas/ICustomAttributeProvider'
+          "$ref": "#/components/schemas/ICustomAttributeProvider"
         attributes:
-          $ref: '#/components/schemas/MethodAttributes'
+          "$ref": "#/components/schemas/MethodAttributes"
         methodImplementationFlags:
-          $ref: '#/components/schemas/MethodImplAttributes'
+          "$ref": "#/components/schemas/MethodImplAttributes"
         callingConvention:
-          $ref: '#/components/schemas/CallingConventions'
+          "$ref": "#/components/schemas/CallingConventions"
         isAbstract:
           type: boolean
           readOnly: true
@@ -1135,7 +1136,7 @@ components:
           type: boolean
           readOnly: true
         methodHandle:
-          $ref: '#/components/schemas/RuntimeMethodHandle'
+          "$ref": "#/components/schemas/RuntimeMethodHandle"
         isSecurityCritical:
           type: boolean
           readOnly: true
@@ -1150,15 +1151,15 @@ components:
           nullable: true
           readOnly: true
         declaringType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         reflectedType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         module:
-          $ref: '#/components/schemas/Module'
+          "$ref": "#/components/schemas/Module"
         customAttributes:
           type: array
           items:
-            $ref: '#/components/schemas/CustomAttributeData'
+            "$ref": "#/components/schemas/CustomAttributeData"
           nullable: true
           readOnly: true
         isCollectible:
@@ -1173,37 +1174,37 @@ components:
       type: object
       properties:
         memberType:
-          $ref: '#/components/schemas/MemberTypes'
+          "$ref": "#/components/schemas/MemberTypes"
         attributes:
-          $ref: '#/components/schemas/EventAttributes'
+          "$ref": "#/components/schemas/EventAttributes"
         isSpecialName:
           type: boolean
           readOnly: true
         addMethod:
-          $ref: '#/components/schemas/MethodInfo'
+          "$ref": "#/components/schemas/MethodInfo"
         removeMethod:
-          $ref: '#/components/schemas/MethodInfo'
+          "$ref": "#/components/schemas/MethodInfo"
         raiseMethod:
-          $ref: '#/components/schemas/MethodInfo'
+          "$ref": "#/components/schemas/MethodInfo"
         isMulticast:
           type: boolean
           readOnly: true
         eventHandlerType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         name:
           type: string
           nullable: true
           readOnly: true
         declaringType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         reflectedType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         module:
-          $ref: '#/components/schemas/Module'
+          "$ref": "#/components/schemas/Module"
         customAttributes:
           type: array
           items:
-            $ref: '#/components/schemas/CustomAttributeData'
+            "$ref": "#/components/schemas/CustomAttributeData"
           nullable: true
           readOnly: true
         isCollectible:
@@ -1216,42 +1217,42 @@ components:
       additionalProperties: false
     FieldAttributes:
       enum:
-        - 0
-        - 1
-        - 2
-        - 3
-        - 4
-        - 5
-        - 6
-        - 7
-        - 16
-        - 32
-        - 64
-        - 128
-        - 256
-        - 512
-        - 1024
-        - 4096
-        - 8192
-        - 32768
-        - 38144
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 16
+      - 32
+      - 64
+      - 128
+      - 256
+      - 512
+      - 1024
+      - 4096
+      - 8192
+      - 32768
+      - 38144
       type: integer
       format: int32
     RuntimeFieldHandle:
       type: object
       properties:
         value:
-          $ref: '#/components/schemas/IntPtr'
+          "$ref": "#/components/schemas/IntPtr"
       additionalProperties: false
     FieldInfo:
       type: object
       properties:
         memberType:
-          $ref: '#/components/schemas/MemberTypes'
+          "$ref": "#/components/schemas/MemberTypes"
         attributes:
-          $ref: '#/components/schemas/FieldAttributes'
+          "$ref": "#/components/schemas/FieldAttributes"
         fieldType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         isInitOnly:
           type: boolean
           readOnly: true
@@ -1298,21 +1299,21 @@ components:
           type: boolean
           readOnly: true
         fieldHandle:
-          $ref: '#/components/schemas/RuntimeFieldHandle'
+          "$ref": "#/components/schemas/RuntimeFieldHandle"
         name:
           type: string
           nullable: true
           readOnly: true
         declaringType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         reflectedType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         module:
-          $ref: '#/components/schemas/Module'
+          "$ref": "#/components/schemas/Module"
         customAttributes:
           type: array
           items:
-            $ref: '#/components/schemas/CustomAttributeData'
+            "$ref": "#/components/schemas/CustomAttributeData"
           nullable: true
           readOnly: true
         isCollectible:
@@ -1325,25 +1326,25 @@ components:
       additionalProperties: false
     PropertyAttributes:
       enum:
-        - 0
-        - 512
-        - 1024
-        - 4096
-        - 8192
-        - 16384
-        - 32768
-        - 62464
+      - 0
+      - 512
+      - 1024
+      - 4096
+      - 8192
+      - 16384
+      - 32768
+      - 62464
       type: integer
       format: int32
     PropertyInfo:
       type: object
       properties:
         memberType:
-          $ref: '#/components/schemas/MemberTypes'
+          "$ref": "#/components/schemas/MemberTypes"
         propertyType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         attributes:
-          $ref: '#/components/schemas/PropertyAttributes'
+          "$ref": "#/components/schemas/PropertyAttributes"
         isSpecialName:
           type: boolean
           readOnly: true
@@ -1354,23 +1355,23 @@ components:
           type: boolean
           readOnly: true
         getMethod:
-          $ref: '#/components/schemas/MethodInfo'
+          "$ref": "#/components/schemas/MethodInfo"
         setMethod:
-          $ref: '#/components/schemas/MethodInfo'
+          "$ref": "#/components/schemas/MethodInfo"
         name:
           type: string
           nullable: true
           readOnly: true
         declaringType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         reflectedType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         module:
-          $ref: '#/components/schemas/Module'
+          "$ref": "#/components/schemas/Module"
         customAttributes:
           type: array
           items:
-            $ref: '#/components/schemas/CustomAttributeData'
+            "$ref": "#/components/schemas/CustomAttributeData"
           nullable: true
           readOnly: true
         isCollectible:
@@ -1383,58 +1384,58 @@ components:
       additionalProperties: false
     GenericParameterAttributes:
       enum:
-        - 0
-        - 1
-        - 2
-        - 3
-        - 4
-        - 8
-        - 16
-        - 28
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 8
+      - 16
+      - 28
       type: integer
       format: int32
     TypeAttributes:
       enum:
-        - 0
-        - 1
-        - 2
-        - 3
-        - 4
-        - 5
-        - 6
-        - 7
-        - 8
-        - 16
-        - 24
-        - 32
-        - 128
-        - 256
-        - 1024
-        - 2048
-        - 4096
-        - 8192
-        - 16384
-        - 65536
-        - 131072
-        - 196608
-        - 262144
-        - 264192
-        - 1048576
-        - 12582912
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 16
+      - 24
+      - 32
+      - 128
+      - 256
+      - 1024
+      - 2048
+      - 4096
+      - 8192
+      - 16384
+      - 65536
+      - 131072
+      - 196608
+      - 262144
+      - 264192
+      - 1048576
+      - 12582912
       type: integer
       format: int32
     LayoutKind:
       enum:
-        - 0
-        - 2
-        - 3
+      - 0
+      - 2
+      - 3
       type: integer
       format: int32
     StructLayoutAttribute:
       type: object
       properties:
         value:
-          $ref: '#/components/schemas/LayoutKind'
+          "$ref": "#/components/schemas/LayoutKind"
         typeId:
           type: object
           additionalProperties: false
@@ -1445,7 +1446,7 @@ components:
       type: object
       properties:
         value:
-          $ref: '#/components/schemas/IntPtr'
+          "$ref": "#/components/schemas/IntPtr"
       additionalProperties: false
     TypeInfo:
       type: object
@@ -1453,62 +1454,62 @@ components:
         genericTypeParameters:
           type: array
           items:
-            $ref: '#/components/schemas/Type'
+            "$ref": "#/components/schemas/Type"
           nullable: true
           readOnly: true
         declaredConstructors:
           type: array
           items:
-            $ref: '#/components/schemas/ConstructorInfo'
+            "$ref": "#/components/schemas/ConstructorInfo"
           nullable: true
           readOnly: true
         declaredEvents:
           type: array
           items:
-            $ref: '#/components/schemas/EventInfo'
+            "$ref": "#/components/schemas/EventInfo"
           nullable: true
           readOnly: true
         declaredFields:
           type: array
           items:
-            $ref: '#/components/schemas/FieldInfo'
+            "$ref": "#/components/schemas/FieldInfo"
           nullable: true
           readOnly: true
         declaredMembers:
           type: array
           items:
-            $ref: '#/components/schemas/MemberInfo'
+            "$ref": "#/components/schemas/MemberInfo"
           nullable: true
           readOnly: true
         declaredMethods:
           type: array
           items:
-            $ref: '#/components/schemas/MethodInfo'
+            "$ref": "#/components/schemas/MethodInfo"
           nullable: true
           readOnly: true
         declaredNestedTypes:
           type: array
           items:
-            $ref: '#/components/schemas/TypeInfo'
+            "$ref": "#/components/schemas/TypeInfo"
           nullable: true
           readOnly: true
         declaredProperties:
           type: array
           items:
-            $ref: '#/components/schemas/PropertyInfo'
+            "$ref": "#/components/schemas/PropertyInfo"
           nullable: true
           readOnly: true
         implementedInterfaces:
           type: array
           items:
-            $ref: '#/components/schemas/Type'
+            "$ref": "#/components/schemas/Type"
           nullable: true
           readOnly: true
         isInterface:
           type: boolean
           readOnly: true
         memberType:
-          $ref: '#/components/schemas/MemberTypes'
+          "$ref": "#/components/schemas/MemberTypes"
         namespace:
           type: string
           nullable: true
@@ -1522,20 +1523,20 @@ components:
           nullable: true
           readOnly: true
         assembly:
-          $ref: '#/components/schemas/Assembly'
+          "$ref": "#/components/schemas/Assembly"
         module:
-          $ref: '#/components/schemas/Module'
+          "$ref": "#/components/schemas/Module"
         isNested:
           type: boolean
           readOnly: true
         declaringType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         declaringMethod:
-          $ref: '#/components/schemas/MethodBase'
+          "$ref": "#/components/schemas/MethodBase"
         reflectedType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         underlyingSystemType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         isTypeDefinition:
           type: boolean
           readOnly: true
@@ -1581,7 +1582,7 @@ components:
         genericTypeArguments:
           type: array
           items:
-            $ref: '#/components/schemas/Type'
+            "$ref": "#/components/schemas/Type"
           nullable: true
           readOnly: true
         genericParameterPosition:
@@ -1589,9 +1590,9 @@ components:
           format: int32
           readOnly: true
         genericParameterAttributes:
-          $ref: '#/components/schemas/GenericParameterAttributes'
+          "$ref": "#/components/schemas/GenericParameterAttributes"
         attributes:
-          $ref: '#/components/schemas/TypeAttributes'
+          "$ref": "#/components/schemas/TypeAttributes"
         isAbstract:
           type: boolean
           readOnly: true
@@ -1680,17 +1681,17 @@ components:
           type: boolean
           readOnly: true
         structLayoutAttribute:
-          $ref: '#/components/schemas/StructLayoutAttribute'
+          "$ref": "#/components/schemas/StructLayoutAttribute"
         typeInitializer:
-          $ref: '#/components/schemas/ConstructorInfo'
+          "$ref": "#/components/schemas/ConstructorInfo"
         typeHandle:
-          $ref: '#/components/schemas/RuntimeTypeHandle'
+          "$ref": "#/components/schemas/RuntimeTypeHandle"
         guid:
           type: string
           format: uuid
           readOnly: true
         baseType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         isSerializable:
           type: boolean
           readOnly: true
@@ -1707,7 +1708,7 @@ components:
         customAttributes:
           type: array
           items:
-            $ref: '#/components/schemas/CustomAttributeData'
+            "$ref": "#/components/schemas/CustomAttributeData"
           nullable: true
           readOnly: true
         isCollectible:
@@ -1720,9 +1721,9 @@ components:
       additionalProperties: false
     SecurityRuleSet:
       enum:
-        - 0
-        - 1
-        - 2
+      - 0
+      - 1
+      - 2
       type: integer
       format: int32
     Assembly:
@@ -1731,13 +1732,13 @@ components:
         definedTypes:
           type: array
           items:
-            $ref: '#/components/schemas/TypeInfo'
+            "$ref": "#/components/schemas/TypeInfo"
           nullable: true
           readOnly: true
         exportedTypes:
           type: array
           items:
-            $ref: '#/components/schemas/Type'
+            "$ref": "#/components/schemas/Type"
           nullable: true
           readOnly: true
         codeBase:
@@ -1745,7 +1746,7 @@ components:
           nullable: true
           readOnly: true
         entryPoint:
-          $ref: '#/components/schemas/MethodInfo'
+          "$ref": "#/components/schemas/MethodInfo"
         fullName:
           type: string
           nullable: true
@@ -1773,7 +1774,7 @@ components:
         customAttributes:
           type: array
           items:
-            $ref: '#/components/schemas/CustomAttributeData'
+            "$ref": "#/components/schemas/CustomAttributeData"
           nullable: true
           readOnly: true
         escapedCodeBase:
@@ -1781,11 +1782,11 @@ components:
           nullable: true
           readOnly: true
         manifestModule:
-          $ref: '#/components/schemas/Module'
+          "$ref": "#/components/schemas/Module"
         modules:
           type: array
           items:
-            $ref: '#/components/schemas/Module'
+            "$ref": "#/components/schemas/Module"
           nullable: true
           readOnly: true
         globalAssemblyCache:
@@ -1796,7 +1797,7 @@ components:
           format: int64
           readOnly: true
         securityRuleSet:
-          $ref: '#/components/schemas/SecurityRuleSet'
+          "$ref": "#/components/schemas/SecurityRuleSet"
       additionalProperties: false
     Type:
       type: object
@@ -1805,7 +1806,7 @@ components:
           type: boolean
           readOnly: true
         memberType:
-          $ref: '#/components/schemas/MemberTypes'
+          "$ref": "#/components/schemas/MemberTypes"
         namespace:
           type: string
           nullable: true
@@ -1819,20 +1820,20 @@ components:
           nullable: true
           readOnly: true
         assembly:
-          $ref: '#/components/schemas/Assembly'
+          "$ref": "#/components/schemas/Assembly"
         module:
-          $ref: '#/components/schemas/Module'
+          "$ref": "#/components/schemas/Module"
         isNested:
           type: boolean
           readOnly: true
         declaringType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         declaringMethod:
-          $ref: '#/components/schemas/MethodBase'
+          "$ref": "#/components/schemas/MethodBase"
         reflectedType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         underlyingSystemType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         isTypeDefinition:
           type: boolean
           readOnly: true
@@ -1878,7 +1879,7 @@ components:
         genericTypeArguments:
           type: array
           items:
-            $ref: '#/components/schemas/Type'
+            "$ref": "#/components/schemas/Type"
           nullable: true
           readOnly: true
         genericParameterPosition:
@@ -1886,9 +1887,9 @@ components:
           format: int32
           readOnly: true
         genericParameterAttributes:
-          $ref: '#/components/schemas/GenericParameterAttributes'
+          "$ref": "#/components/schemas/GenericParameterAttributes"
         attributes:
-          $ref: '#/components/schemas/TypeAttributes'
+          "$ref": "#/components/schemas/TypeAttributes"
         isAbstract:
           type: boolean
           readOnly: true
@@ -1977,17 +1978,17 @@ components:
           type: boolean
           readOnly: true
         structLayoutAttribute:
-          $ref: '#/components/schemas/StructLayoutAttribute'
+          "$ref": "#/components/schemas/StructLayoutAttribute"
         typeInitializer:
-          $ref: '#/components/schemas/ConstructorInfo'
+          "$ref": "#/components/schemas/ConstructorInfo"
         typeHandle:
-          $ref: '#/components/schemas/RuntimeTypeHandle'
+          "$ref": "#/components/schemas/RuntimeTypeHandle"
         guid:
           type: string
           format: uuid
           readOnly: true
         baseType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         isSerializable:
           type: boolean
           readOnly: true
@@ -2004,7 +2005,7 @@ components:
         customAttributes:
           type: array
           items:
-            $ref: '#/components/schemas/CustomAttributeData'
+            "$ref": "#/components/schemas/CustomAttributeData"
           nullable: true
           readOnly: true
         isCollectible:
@@ -2019,11 +2020,11 @@ components:
       type: object
       properties:
         attributes:
-          $ref: '#/components/schemas/MethodAttributes'
+          "$ref": "#/components/schemas/MethodAttributes"
         methodImplementationFlags:
-          $ref: '#/components/schemas/MethodImplAttributes'
+          "$ref": "#/components/schemas/MethodImplAttributes"
         callingConvention:
-          $ref: '#/components/schemas/CallingConventions'
+          "$ref": "#/components/schemas/CallingConventions"
         isAbstract:
           type: boolean
           readOnly: true
@@ -2076,7 +2077,7 @@ components:
           type: boolean
           readOnly: true
         methodHandle:
-          $ref: '#/components/schemas/RuntimeMethodHandle'
+          "$ref": "#/components/schemas/RuntimeMethodHandle"
         isSecurityCritical:
           type: boolean
           readOnly: true
@@ -2087,21 +2088,21 @@ components:
           type: boolean
           readOnly: true
         memberType:
-          $ref: '#/components/schemas/MemberTypes'
+          "$ref": "#/components/schemas/MemberTypes"
         name:
           type: string
           nullable: true
           readOnly: true
         declaringType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         reflectedType:
-          $ref: '#/components/schemas/Type'
+          "$ref": "#/components/schemas/Type"
         module:
-          $ref: '#/components/schemas/Module'
+          "$ref": "#/components/schemas/Module"
         customAttributes:
           type: array
           items:
-            $ref: '#/components/schemas/CustomAttributeData'
+            "$ref": "#/components/schemas/CustomAttributeData"
           nullable: true
           readOnly: true
         isCollectible:
@@ -2120,7 +2121,7 @@ components:
           nullable: true
           readOnly: true
         targetSite:
-          $ref: '#/components/schemas/MethodBase'
+          "$ref": "#/components/schemas/MethodBase"
         stackTrace:
           type: string
           nullable: true
@@ -2133,7 +2134,7 @@ components:
           nullable: true
           readOnly: true
         innerException:
-          $ref: '#/components/schemas/Exception'
+          "$ref": "#/components/schemas/Exception"
         helpLink:
           type: string
           nullable: true
@@ -2150,7 +2151,7 @@ components:
         innerExceptions:
           type: array
           items:
-            $ref: '#/components/schemas/Exception'
+            "$ref": "#/components/schemas/Exception"
           nullable: true
           readOnly: true
         message:
@@ -2158,7 +2159,7 @@ components:
           nullable: true
           readOnly: true
         targetSite:
-          $ref: '#/components/schemas/MethodBase'
+          "$ref": "#/components/schemas/MethodBase"
         stackTrace:
           type: string
           nullable: true
@@ -2171,7 +2172,7 @@ components:
           nullable: true
           readOnly: true
         innerException:
-          $ref: '#/components/schemas/Exception'
+          "$ref": "#/components/schemas/Exception"
         helpLink:
           type: string
           nullable: true
@@ -2184,25 +2185,25 @@ components:
       additionalProperties: false
     TaskStatus:
       enum:
-        - 0
-        - 1
-        - 2
-        - 3
-        - 4
-        - 5
-        - 6
-        - 7
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
       type: integer
       format: int32
     TaskCreationOptions:
       enum:
-        - 0
-        - 1
-        - 2
-        - 4
-        - 8
-        - 16
-        - 64
+      - 0
+      - 1
+      - 2
+      - 4
+      - 8
+      - 16
+      - 64
       type: integer
       format: int32
     BooleanTask:
@@ -2216,9 +2217,9 @@ components:
           format: int32
           readOnly: true
         exception:
-          $ref: '#/components/schemas/AggregateException'
+          "$ref": "#/components/schemas/AggregateException"
         status:
-          $ref: '#/components/schemas/TaskStatus'
+          "$ref": "#/components/schemas/TaskStatus"
         isCanceled:
           type: boolean
           readOnly: true
@@ -2229,7 +2230,7 @@ components:
           type: boolean
           readOnly: true
         creationOptions:
-          $ref: '#/components/schemas/TaskCreationOptions'
+          "$ref": "#/components/schemas/TaskCreationOptions"
         asyncState:
           type: object
           additionalProperties: false
@@ -2255,6 +2256,6 @@ components:
   securitySchemes:
     bearer:
       type: http
-      description: '`Token only!!!` - without `Bearer_` prefix'
+      description: "`Token only!!!` - without `Bearer_` prefix"
       scheme: bearer
       bearerFormat: JWT

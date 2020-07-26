@@ -126,7 +126,7 @@ namespace ErrorCentral.API.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpDelete]
         public ActionResult<IEnumerable<LogDTO>> DeleteMany([FromBody] List<int> ids)
         {
             try
