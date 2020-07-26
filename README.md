@@ -31,7 +31,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/conradoalexsander/Error-Central-API">
-    <img src="images/nlw_README.png" alt="Logo" width="200" height="200">
+    <img src="Sample/Logo.png" alt="Logo" width="200" height="200">
   </a>
 
   <h1 align="center">Error Central</h1>
@@ -48,16 +48,16 @@
 
 <p align="center">
 <img
-src="Sample/Logo.png"
+src="SwaggerImage"
 raw=true
 alt="Web Home Screen" 
-height="500px" 
+height="512px" 
 />
 </p>
 
-Project developed during the Next Level Week, an event organized by <a href="https://rocketseat.com.br/">Rocketseat</a> focused in the Typescript (and Javascript) Stack: React, React Native and Node. During seven days, participants are pushed to the limit, to deliver this full stack application.
+Project developed during the AceleraDev C#, a developer bootcamp organized by <a href="https://www.codenation.dev/">Codenation</a> focused in C# and ASP .NET Core API application.
 
-
+"In modern projects it is increasingly common to use architectures based on services or microservices. In these complex environments, errors can arise in different layers of the application (backend, frontend, mobile, desktop) and even in different services. Thus, it is very important that developers can centralize all error records in one place, from where they can monitor and make better decisions. In this project, we will implement a system to centralize application error records." - Codenation
 
 <!-- TABLE OF CONTENTS -->
 ## :bookmark: &nbsp; &nbsp; Table of Contents
@@ -79,23 +79,21 @@ Project developed during the Next Level Week, an event organized by <a href="htt
 <!-- BUILT WITH -->
 ## <h2 id="built-with">:rocket: &nbsp; &nbsp; Built With</h2> 
 
-### Web app
-* []() React
-* []() Axios
-* []() Leaflet (maps)
-* []() Typescript
+### Web API
+* []() C#
+* []() ASP .NET Core ```3.1``` 
+* []() Entity Framework Core
+* []() Automapper
 
-### Mobile app
-* []() React Native
-* []() Axios
+### Database
+* []() SQL Server (localdb)
+* []() Fluent API (Entity Framework, code first)
 * []() Expo
 * []() Typescript
 
-### Backend app
-* []() Ts-Node
-* []() Express
-* []() KnexJs
-* []() SQLite
+### Login and Authorization
+* []() ASP .NET Core EF Identity
+* []() JWT Token
 
 <!-- GETTING STARTED -->
 ## <h2 id="getting-started">:fire: &nbsp; &nbsp; Getting Started </h2>
