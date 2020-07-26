@@ -146,18 +146,16 @@ After the application start, it is possible to access the Swagger live documenta
 
 By design, all actions routes in this project requires Authorization (Bearer Token). Because of that, remember to make a login through the /api/User/Login to get your Token
 
-<p align="center" float="left">
-  <img src="images/mobile-screen-sample.gif" width="200" />
-  <img src="images/Top Mercados.gif" width="680" height="306" /> 
-
+<p align="center">
+  <img src="Sample/Login.png" width="800" />
+  <img src="Sample/Token.png" width="800" />
 </p>
 
 And authorize your access with it:
 
-
-<p align="center" float="left">
-  <img src="images/mobile-screen-sample.gif" width="200" />
-  <img src="images/Top Mercados.gif" width="680" height="306" /> 
+<p align="center">
+  <img src="Sample/authorize_click.png" width="800" />
+   <img src="Sample/authorize_window.png" width="800" />
 </p>
 
 Now, you can execution all actions in the API.
@@ -167,13 +165,13 @@ Now, you can execution all actions in the API.
 <h3> Database Schema </h3>
 
 <p align="center">
-  <img src="images/mobile-screen-sample.gif" width="200" />
+  <img src="Sample/Database Diagram.png" width="800" />
 </p>
 
 <h3> Class-Service Schema </h3>
 
 <p align="center">
-  <img src="images/mobile-screen-sample.gif" width="200" />
+  <img src="Sample/Class Service Diagram.png" width="800" />
 </p>
 
 <!-- EXECUTING TESTS -->
@@ -182,7 +180,7 @@ Now, you can execution all actions in the API.
 To execute the xUnit tests in this application, right click the ErrorCentral.Test project and click in run:
 
 <p align="center" float="left">
-  <img src="images/Top Mercados.gif" width="680" height="306" /> 
+  <img src="Sample/Running Tests.png" width="800" /> 
 </p>
 
 <!-- LICENSE -->
