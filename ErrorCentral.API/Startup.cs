@@ -34,11 +34,6 @@ namespace ErrorCentral.API
             Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
             services.AddAutoMapper(typeof(AutoMapperConfig));
-         
-
-        
-
-        
 
             services.AddSwaggerGen(x =>
             {

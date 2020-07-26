@@ -25,7 +25,7 @@ namespace ErrorCentral.Data.Repository
             {
                 UserName = name,
                 Email = email,
-                EmailConfirmed = true
+                EmailConfirmed = true,
             };
 
             var addUserProccess = await _userManager.CreateAsync(user, password);
