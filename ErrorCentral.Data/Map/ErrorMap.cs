@@ -7,13 +7,16 @@ using System.Text;
 
 namespace ErrorCentral.Data.Map
 {
-    internal class ErrorMap
+    internal class ErrorMap : IEntityTypeConfiguration<Error>
     {
         public void Configure(EntityTypeBuilder<Error> builder)
         {
             builder.ToTable("Error");
 
             builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Id)
+            .HasColumnName("error_id");
 
             builder.Property(x => x.Type)
                 .HasColumnType("nvarchar(max)")
@@ -32,7 +35,7 @@ namespace ErrorCentral.Data.Map
                 .IsRequired();
 
             builder.Property(x => x.CreatedAt)
-                .HasColumnType("smalldatetime")
+                .HasColumnType("nvarchar(50)")
                 .IsRequired();
         }
     }

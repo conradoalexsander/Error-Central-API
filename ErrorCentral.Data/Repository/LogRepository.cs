@@ -17,6 +17,7 @@ namespace ErrorCentral.Data.Repository
 
         public override void Add(Log entity)
         {
+            entity.CreatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             _context.Log.Add(entity);
             _context.Log.Include(p => p.Organization);
             _context.SaveChanges(); //necessário para incluir uma alteração no banco
@@ -25,7 +26,6 @@ namespace ErrorCentral.Data.Repository
         public override List<Log> SelectAll()
         {
             return _context.Log.Include(p => p.Organization).ToList();
-            
         }
 
         public void DeleteMany(List<int> ids)

@@ -79,13 +79,12 @@ namespace ErrorCentral.API.Controllers
             }
         }
 
-        [Authorize]
         [HttpPost]
-        public ActionResult<Task<bool>> Post([FromBody] UserDTO user)
+        public async Task<ActionResult<bool>> Post([FromBody] UserDTO user)
         {
             try
             {
-                return _app.Add(user);
+                return await _app.Add(user);
             }
             catch (Exception ex)
             {

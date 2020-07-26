@@ -25,7 +25,9 @@ namespace ErrorCentral.Application.DTOs
         public string CollectedBy { get; set; }
 
         [Required]
-        public DateTime CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
+
+        public string UpdatedAt { get; set; }
 
         [Required]
         public int IdOrganization { get; set; }

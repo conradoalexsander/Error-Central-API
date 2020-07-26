@@ -14,10 +14,17 @@ namespace ErrorCentral.Data.Map
             builder.ToTable("Organization");
 
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id);
 
             builder.Property(x => x.Name)
-              .HasColumnType("varchar(200)")
               .IsRequired();
+
+            builder.Property(x => x.CreatedAt)
+              .HasColumnType("nvarchar(50)")
+              .IsRequired();
+
+            builder.Property(x => x.UpdatedAt)
+              .HasColumnName("updated_at");
         }
     }
 }

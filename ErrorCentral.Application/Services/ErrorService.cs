@@ -19,7 +19,7 @@ namespace ErrorCentral.Application.Services
         {
             Error exceptionError = new Error()
             {
-                CreatedAt = new DateTime(),
+                CreatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                 StackTrace = ex.StackTrace,
                 UserName = userName,
                 Message = ex.Message

@@ -16,8 +16,9 @@ namespace ErrorCentral.Data.Repository
             _context = context;
         }
 
-        public virtual void Add(Error entity)
+        public void Add(Error entity)
         {
+            entity.CreatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             _context.Error.Add(entity);
             _context.SaveChanges(); //necessário para incluir uma alteração no banco
         }

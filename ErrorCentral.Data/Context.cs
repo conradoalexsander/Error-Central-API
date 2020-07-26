@@ -20,6 +20,7 @@ namespace ErrorCentral.Data
         {
             modelBuilder.ApplyConfiguration(new LogMap());
             modelBuilder.ApplyConfiguration(new OrganizationMap());
+            modelBuilder.ApplyConfiguration(new ErrorMap());
 
             base.OnModelCreating(modelBuilder);
         }

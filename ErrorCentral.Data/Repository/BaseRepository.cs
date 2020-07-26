@@ -18,12 +18,14 @@ namespace ErrorCentral.Data.Repository
 
         public virtual void Add(T entity)
         {
+            entity.CreatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             _context.Set<T>().Add(entity);
             _context.SaveChanges(); //necessário para incluir uma alteração no banco
         }
 
         public void Update(T entity)
         {
+            entity.UpdatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             _context.Set<T>().Update(entity);
             _context.SaveChanges();
         }
