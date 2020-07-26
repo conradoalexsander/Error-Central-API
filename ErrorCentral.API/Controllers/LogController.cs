@@ -86,6 +86,22 @@ namespace ErrorCentral.API.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("/[action]")]
+        public ActionResult<IEnumerable<LogDTO>> DeleteMany([FromBody] List<int> ids)
+        {
+            try
+            {
+                _app.DeleteMany(ids);
+                return Ok(_app.SelectAll());
+            }
+            catch (Exception ex)
+            {
+                _err.Add(ex, HttpContext.User.Identity.Name);
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPut]
         public ActionResult<IEnumerable<LogDTO>> Put([FromBody] LogUpdateDTO log)
         {
@@ -118,21 +134,6 @@ namespace ErrorCentral.API.Controllers
                 {
                     return BadRequest($"Log with id {id} not found");
                 }
-            }
-            catch (Exception ex)
-            {
-                _err.Add(ex, HttpContext.User.Identity.Name);
-                return BadRequest(ex.Message);
-            }
-        }
-
-        [HttpPost]
-        public ActionResult<IEnumerable<LogDTO>> DeleteMany([FromBody] List<int> ids)
-        {
-            try
-            {
-                _app.DeleteMany(ids);
-                return Ok(_app.SelectAll());
             }
             catch (Exception ex)
             {

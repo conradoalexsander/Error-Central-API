@@ -34,11 +34,6 @@ namespace ErrorCentral.API
             Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
             services.AddAutoMapper(typeof(AutoMapperConfig));
-         
-
-        
-
-        
 
             services.AddSwaggerGen(x =>
             {
@@ -93,6 +88,7 @@ namespace ErrorCentral.API
             app.UseSwaggerUI(x =>
             {
                 x.SwaggerEndpoint(url: "/swagger/v1/swagger.json", name: "Error Central");
+
             });
 
             app.UseHttpsRedirection();
