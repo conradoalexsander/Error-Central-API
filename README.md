@@ -31,10 +31,10 @@
 <br />
 <p align="center">
   <a href="https://github.com/conradoalexsander/Error-Central-API">
-    <img src="images/nlw_README.png" alt="Logo" width="200" height="200">
+    <img src="Sample/Logo.png" alt="Logo" width="200" height="200">
   </a>
 
-  <h1 align="center">Error Central</h1>
+  <h1 align="center">Error Central API</h1>
 
   <h2 align="center">
     Save your application's error logs!
@@ -48,15 +48,17 @@
 
 <p align="center">
 <img
-src="Sample/Logo.png"
+src="SwaggerImage"
 raw=true
 alt="Web Home Screen" 
-height="500px" 
+height="512px" 
 />
 </p>
 
-Project developed during the Next Level Week, an event organized by <a href="https://rocketseat.com.br/">Rocketseat</a> focused in the Typescript (and Javascript) Stack: React, React Native and Node. During seven days, participants are pushed to the limit, to deliver this full stack application.
 
+"In modern projects it is increasingly common to use architectures based on services or microservices. In these complex environments, errors can arise in different layers of the application (backend, frontend, mobile, desktop) and even in different services. Thus, it is very important that developers can centralize all error records in one place, from where they can monitor and make better decisions. In this project, we will implement a system to centralize application error records." - Codenation
+
+Project developed during the AceleraDev C#, a developer bootcamp organized by <a href="https://www.codenation.dev/">Codenation</a> focused in C# and ASP .NET Core API application.
 
 
 <!-- TABLE OF CONTENTS -->
@@ -64,72 +66,47 @@ Project developed during the Next Level Week, an event organized by <a href="htt
 
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
+* [Prerequisites](#prerequisites)
+* [Installation](#installation)
 * [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
+* [Endpoints](#endpoints)
 * [Usage](#usage)
+* [Schemas](#schemas)
+* [Executing Tests](#executing-tests)
 * [License](#license)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
 
-
-
-
-
 <!-- BUILT WITH -->
 ## <h2 id="built-with">:rocket: &nbsp; &nbsp; Built With</h2> 
 
-### Web app
-* []() React
-* []() Axios
-* []() Leaflet (maps)
-* []() Typescript
+### Web API
+* []() C#
+* []() ASP .NET Core ```3.1``` 
+* []() Entity Framework Core
+* []() Automapper
 
-### Mobile app
-* []() React Native
-* []() Axios
-* []() Expo
-* []() Typescript
+### Database
+* []() SQL Server (localdb)
+* []() Fluent API (Entity Framework, code first)
 
-### Backend app
-* []() Ts-Node
-* []() Express
-* []() KnexJs
-* []() SQLite
+### Login and Authorization
+* []() ASP .NET Core EF Identity
+* []() JWT Token
 
-<!-- GETTING STARTED -->
-## <h2 id="getting-started">:fire: &nbsp; &nbsp; Getting Started </h2>
-
-Before following the next steps, make sure to change the routes with the correctlye connection (for expo check the 192.XXX.XXX:YYYY connection).
-
-1. Open the server folder in a terminal and execute the following command:
-```sh
-npm run dev
-```
-2. Open the web folder in a terminal and execute the following command:
-```sh
-npm start
-```
-or
-
-```sh
-yarn start
-```
-You will be able to create new points from the web page now.
-
-3. Open the mobile folder in a terminal and execute the following command:
-```sh
-expo start
-```
-
-4. Use the expo app in your celphone to connect the app on it. Your pc and mobile device must be in the same network:
-
-You can now check the points, its location and filter them by recycable item.
+### Tests
+* []() .Net Core dotnet test
+* []() .Net Core xUnit
 
 ## <h3 id="prerequisites"> :pushpin: &nbsp; &nbsp; Prerequisites </h2>
 
-* []() Node
-* []() Expo
+* []() .NET / .NET Core 3.1
+* []() MS SQL Server - localdb
+* []() Visual Studio 2019 
+
+Obs.: Visual Studio 2019 is a .NET framework and this project was made using it. Therefore I am putting it here as a prerequisite because the Getting Started
+Section will consider the user is using it. However, it should be perfectly possible to run this project in another version of this application or even in totally different
+frameworks and setups, with the properly configuration.
 
 ## <h3 id="installation"> :computer: &nbsp; &nbsp; Installation </h2>
  
@@ -137,12 +114,37 @@ You can now check the points, its location and filter them by recycable item.
 ```sh
 git clone https://github.com/conradoalexsander/Error-Central-API.git
 ```
-2. Install NPM packages (run this command in web, server and mobile folders)
+
+2. Create a database to in MSSQL Server (sugggested name ErrorCentral) to use it in this application, the tables will be automatically created in the migration proccess later (see more in the Getting Started section).
+
+<!-- GETTING STARTED -->
+## <h2 id="getting-started">:fire: &nbsp; &nbsp; Getting Started </h2>
+
+Before following the next steps, make sure to have the prerequisites installed and configurated. 
+
+This project was built using MS Visual Studio 2019. Therefore, the next steps considers this 
+
+1. Double-click ErrorCentral.sln file
+
+2. Open the Package Manager console and change de Default project to ErrorCentral.Data:
+
+2. To update the database with the correct tables and columns through migration, open the Package Manager console and run the following command:
 ```sh
-npm install
+Update-Database
 ```
-<!-- USAGE EXAMPLES -->
+
+The application will launch in the Swagger documentation home page.
+
+
+<!-- ENDPOINTS -->
+## <h2 id="endpoints"> :triangular_flag_on_post: &nbsp; &nbsp; Endpoints </h2>
+
+After the application start, it is possible to access the Swagger live documentation about endpoints and schemas in the application index: https://localhost:44369/swagger/index.html.
+
+<!-- USAGE -->
 ## <h2 id="usage"> :sparkles: &nbsp; &nbsp; Usage </h2>
+
+By design, all actions routes in this project requires Authorization (Bearer Token). Because of that, remember to make a login through the /api/User/Login to get your Token
 
 <p align="center" float="left">
   <img src="images/mobile-screen-sample.gif" width="200" />
@@ -150,6 +152,38 @@ npm install
 
 </p>
 
+And authorize your access with it:
+
+
+<p align="center" float="left">
+  <img src="images/mobile-screen-sample.gif" width="200" />
+  <img src="images/Top Mercados.gif" width="680" height="306" /> 
+</p>
+
+Now, you can execution all actions in the API.
+
+<!-- SCHEMAS -->
+## <h2 id="schemas"> :earth_americas: &nbsp; &nbsp; Schemas </h2>
+<h3> Database Schema </h3>
+
+<p align="center">
+  <img src="images/mobile-screen-sample.gif" width="200" />
+</p>
+
+<h3> Class-Service Schema </h3>
+
+<p align="center">
+  <img src="images/mobile-screen-sample.gif" width="200" />
+</p>
+
+<!-- EXECUTING TESTS -->
+## <h2 id="executing-tests"> :vertical_traffic_light: &nbsp; &nbsp; Executing tests </h2>
+
+To execute the xUnit tests in this application, right click the ErrorCentral.Test project and click in run:
+
+<p align="center" float="left">
+  <img src="images/Top Mercados.gif" width="680" height="306" /> 
+</p>
 
 <!-- LICENSE -->
 ## <h2 id="license"> :scroll: &nbsp; &nbsp; License </h2>
@@ -169,11 +203,8 @@ Project Link: [https://github.com/conradoalexsander/Error-Central-API](https://g
 <!-- ACKNOWLEDGEMENTS -->
 ## <h2 id="acknowledgements"> :thumbsup: &nbsp; &nbsp; Acknowledgements </h2>
 
-* []() <a href="https://rocketseat.com.br/">Rocketseat</a>
-
-
-
-
+* []() <a href="https://github.com/stone-payments/">Stone Stech Team</a>
+* []() <a href="https://www.codenation.dev/">Codenation</a>
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
