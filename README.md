@@ -135,10 +135,6 @@ This project was built using MS Visual Studio 2019. Therefore, the next steps co
 Update-Database
 ```
 
-3. Click in the run (IIS Express) or press F5 to run the application.
-```sh
-expo start
-```
 The application will launch in the Swagger documentation home page.
 
 
