@@ -20,7 +20,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErrorCentral.Application", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErrorCentral.Infra.IoC", "ErrorCentral.Infra.IoC\ErrorCentral.Infra.IoC.csproj", "{178C202B-CDB2-4AAB-A3B3-C34D8392799C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorCentral.Test", "ErrorCentral.Test\ErrorCentral.Test.csproj", "{972EB413-E684-47BE-8D45-A38C94B2365A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErrorCentral.Test", "ErrorCentral.Test\ErrorCentral.Test.csproj", "{972EB413-E684-47BE-8D45-A38C94B2365A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
