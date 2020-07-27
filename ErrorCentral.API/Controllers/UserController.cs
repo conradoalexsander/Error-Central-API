@@ -79,7 +79,6 @@ namespace ErrorCentral.API.Controllers
             }
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<ActionResult<bool>> Post([FromBody] UserDTO user)
         {
