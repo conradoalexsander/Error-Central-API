@@ -74,6 +74,7 @@ height="300px"
 * [Endpoints](#endpoints)
 * [Usage](#usage)
 * [Schemas](#schemas)
+* [Demo](#demo)
 * [Executing Tests](#executing-tests)
 * [License](#license)
 * [Contact](#contact)
@@ -95,6 +96,10 @@ height="300px"
 ### Login and Authorization
 * []() ASP .NET Core EF Identity
 * []() JWT Token
+
+### Deploy
+* []() .Docker and Docker Compose
+* []() .Heroku
 
 ### Tests
 * []() .Net Core dotnet test
@@ -174,6 +179,18 @@ Now, you can execution all actions in the API.
 
 <p align="center">
   <img src="Sample/Class Service Diagram.png" width="800" />
+</p>
+
+<!-- DEMO -->
+## <h2 id="demo"> :tv: &nbsp; &nbsp; Demo </h2>
+
+A demo of the project was deployed in heroku, you can check it here:
+| Platform | Service | Link |
+| :--- | :--- | :--- |
+| Heroku | Swagger Live Doc | [https://error-central-api-codenation.herokuapp.com/swagger/index.html](https://error-central-api-codenation.herokuapp.com/swagger/index.html)|
+
+<p align="center" float="left">
+  <img src="Sample/Running Tests.png" width="800" /> 
 </p>
 
 <!-- EXECUTING TESTS -->
