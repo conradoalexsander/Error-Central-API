@@ -189,10 +189,6 @@ A demo of the project was deployed in heroku, you can check it here:
 | :--- | :--- | :--- |
 | Heroku | Swagger Live Doc | [https://error-central-api-codenation.herokuapp.com/swagger/index.html](https://error-central-api-codenation.herokuapp.com/swagger/index.html)|
 
-<p align="center" float="left">
-  <img src="Sample/Running Tests.png" width="800" /> 
-</p>
-
 <!-- EXECUTING TESTS -->
 ## <h2 id="executing-tests"> :vertical_traffic_light: &nbsp; &nbsp; Executing tests </h2>
 
