@@ -189,6 +189,25 @@ A demo of the project was deployed in heroku, you can check it here:
 | :--- | :--- | :--- |
 | Heroku | Swagger Live Doc | [https://error-central-api-codenation.herokuapp.com/swagger/index.html](https://error-central-api-codenation.herokuapp.com/swagger/index.html)|
 
+*Obs.: Follow this steps to login and authorize endpoint usage
+
+1. Click in the /api/User/Login (first rout in User's routes section) route and use this request body:
+
+```sh
+{
+  "email": "codenation@stechnation.com",
+  "password": "Codenation@123"
+}
+```
+2. Copy the token in the response of this request (it is a string of stranger characters)
+
+3. Roll up to the top of the page and click in the <b>Authorize</b> button
+
+3. Paste your token in the <b>Value</b> field and click in Authorize
+
+3. Click in close and now you are ready to use all endpoints in the API :)
+
+
 <!-- EXECUTING TESTS -->
 ## <h2 id="executing-tests"> :vertical_traffic_light: &nbsp; &nbsp; Executing tests </h2>
 
