@@ -98,8 +98,8 @@ height="300px"
 * []() JWT Token
 
 ### Deploy
-* []() .Docker and Docker Compose
-* []() .Heroku
+* []() Docker and Docker Compose
+* []() Heroku
 
 ### Tests
 * []() .Net Core dotnet test
